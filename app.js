@@ -4,7 +4,24 @@ App({
     
   },
   onShow:function(){
-    
+    var that = this
+    wx.request({
+      url: that.globalData.https + '/x/Operate/Home.ashx',
+      data: {
+        method: "Get_ShareTitle"
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (shareRes) {
+        console.log(JSON.stringify(shareRes))
+        that.globalData.shareContent = decodeURI(shareRes.data)
+        typeof cb == "function" && cb(that.globalData.shareContent)
+      },
+      fail: function (res) {
+        
+      }
+    })
   },
   //会员登录
   login: function (cb) {
@@ -99,6 +116,7 @@ App({
     }
   },
   globalData: {
+    shareContent:'',
     isToday:false,
     playing: null,
     palyList: [{

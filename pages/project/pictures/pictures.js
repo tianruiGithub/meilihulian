@@ -78,7 +78,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '美丽互联',
+      desc: app.globalData.shareContent,
+      path: '/pages/project/project'
+    }
   },
   //加载图片
   loadPic: function () {
