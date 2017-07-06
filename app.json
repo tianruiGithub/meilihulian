@@ -63,7 +63,8 @@
     "pages/user/resumeBao/resumeBao",
     "pages/user/resumeBao/resumeEdit/resumeEdit",
     "pages/user/resumeBao/resumeNew/resumeNew",
-    "pages/user/register/register"
+    "pages/user/register/register",
+	  "pages/project/wisdomjoinRequestPublish/wisdomjoinRequestPublish"
   ],
   "window": {
     "backgroundTextStyle": "light",

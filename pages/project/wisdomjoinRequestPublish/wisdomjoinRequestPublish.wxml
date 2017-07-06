@@ -1,0 +1,18 @@
+<view class="input">
+  <textarea maxlength="-1" style="width:100%;height:100%;" value="{{textarea}}" bindinput="textarea" />
+</view>
+<view class="issue">
+  <image src="{{urlPath}}tupian.png" class="issueImg" bindtap="tupian"></image>
+  <button class="issueBtn" bindtap="fabu" disabled="{{disabled}}">
+    <text>发布</text>
+  </button>
+</view>
+
+
+<view class="tuku">
+  <view class="tupian" wx:for="{{pic}}" wx:key="{{this}}">
+    <image mode="aspectFill" src="{{item}}" class="tupianS" data-src="{{item}}" bindtap="pro"></image>
+    <image class="shanchu" src="{{urlPath}}shanchu.png" bindtap="delete" data-index="{{index}}"></image>
+  </view>
+</view>
+
