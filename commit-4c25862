@@ -1,0 +1,30 @@
+commit 4c25862ed7d12683f66845d72426e220f097f065
+Author: guanshuyuan0000 <270199663@qq.com>
+Date:   Thu Jul 6 13:56:22 2017 +0800
+
+    Revert "Signed-off-by: guanshuyuan0000 <270199663@qq.com>"
+    
+    This reverts commit fabe019601995f3bc202f4f171d6c97e94d78ee1.
+
+diff --git a/pages/project/project.wxss b/pages/project/project.wxss
+index f90ef77..a4786ad 100644
+--- a/pages/project/project.wxss
++++ b/pages/project/project.wxss
+@@ -55,7 +55,7 @@ page {
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+-  justify-content: flex-start;
++  justify-content: flex-end;
+ }
+ 
+ .tri image {
+@@ -94,8 +94,6 @@ page {
+   height: 200rpx;
+   background: white;
+   font-size: 4vw;
+-  margin: 30rpx 0;
+-  padding: 0 30rpx;
+ }
+ 
+ .below {

@@ -1,8 +1,10 @@
 page {
-  background: #f7f7f7;
-  font-family: PingFangRegular;
+  background: #efeff4;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
-
 
 .swiper-containe {
   width: 100%;
@@ -26,8 +28,8 @@ page {
   width: 49.3%;
   border: 1rpx solid #ccc !important;
   padding-bottom: 0%;
-  color: #808080 !important;
-  font-size: 4vw !important;
+  color: #888 !important;
+  font-size: 11pt !important;
   background-color: #fff;
   position: relative;
   margin: 0;
@@ -40,9 +42,10 @@ page {
   align-items: center;
   justify-content: flex-start;
 }
-.btnleft picker{
-  width:60%;
-  height:100%;
+
+.btnleft picker {
+  width: 60%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -50,12 +53,12 @@ page {
 }
 
 .tri {
-   width:40%;
-  height:100%;
+  width: 40%;
+  height: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .tri image {
@@ -63,7 +66,7 @@ page {
   height: 40rpx;
   line-height: 70rpx;
   margin-left: 5rpx;
-  margin-right:20rpx;
+  margin-right: 20rpx;
 }
 
 .btnright {
@@ -93,15 +96,18 @@ page {
   width: 100%;
   height: 200rpx;
   background: white;
-  font-size: 4vw;
+  font-size: 11pt;
+  display: flex;
+  border-bottom: 1rpx solid #efeff4;
 }
 
 .below {
-  width: 100%;
-  height: 50rpx;
+  padding: 16rpx 30rpx;
   background: white;
   margin-bottom: 40rpx;
-  font-size: 4vw;
+  font-size: 9pt;
+  display: flex;
+  flex-direction: row;
 }
 
 .piao {
@@ -134,57 +140,72 @@ page {
 }
 
 .touxiang {
-  float: left;
-  width: 25%;
-  height: 100%;
+  width: 90px;
+  height: 90px;
 }
 
 .headpic {
   float: left;
-  width: 130rpx;
-  height: 130rpx;
+  width: 140rpx;
+  height: 140rpx;
   position: relative;
-  top: -10rpx;
-  left: 20rpx;
+  top: -16rpx;
+  left: 30rpx;
   z-index: 1;
 }
 
 .xiangmu {
-  float: left;
-  width: 40%;
-  height: 170rpx;
-  padding-left: 1%;
-  padding-top: 30rpx;
+  flex: 1;
+  height: 140rpx;
+  padding-left: 16rpx;
+  padding-top: 40rpx;
 }
 
 .mingcheng {
   height: 50rpx;
   line-height: 50rpx;
+  font-size: 11pt;
+  color: #353535;
 }
 
 .chengshi {
-  height: 50rpx;
-  line-height: 50rpx;
-  color: rgb(153, 153, 153);
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #888;
+  font-size: 9pt;
 }
 
 .chuangshiren {
-  height: 50rpx;
-  line-height: 50rpx;
-  color: rgb(153, 153, 153);
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #888;
+  font-size: 9pt;
+}
+
+.ren {
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #888;
 }
 
 .shuzi {
-  float: right;
-  width: 34%;
-  height: 170rpx;
-  padding-top: 30rpx;
+  min-width: 50px;
+  height: 140rpx;
+  padding-top: 40rpx;
+  margin-right: 30rpx;
+  font-size: 9pt;
 }
 
-.shuzi view {
-  height: 35rpx;
-  line-height: 35rpx;
-  color: rgb(153, 153, 153);
+.zi {
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #888;
+}
+
+.zhi {
+  height: 50rpx;
+  line-height: 50rpx;
+  color: #888;
 }
 
 .shuzi image {
@@ -195,17 +216,23 @@ page {
 }
 
 .below view {
-  float: left;
   width: 33%;
   height: 100%;
-  color: rgb(153, 153, 153);
-  border-top: 1px solid rgb(247, 247, 247);
+  color: #888;
   line-height: 50rpx;
+}
+
+.mid {
   text-align: center;
 }
 
+.right {
+  text-align: right;
+}
+
 .below text {
-  color: black;
+  color: #888;
+  width: 50px;
 }
 
 .zhezhao {
@@ -216,8 +243,9 @@ page {
   right: 0;
   background: #000;
   opacity: 0.7;
-  z-index: 99
+  z-index: 99;
 }
+
 .zhezhaoh {
   display: none;
   position: fixed;
@@ -227,18 +255,19 @@ page {
   right: 0;
   background: #000;
   opacity: 0.7;
-  z-index: 99
+  z-index: 99;
 }
 
-.zhezhaotop{
-  margin-top:40rpx;
+.zhezhaotop {
+  margin-top: 40rpx;
   opacity: 1;
 }
-.zhezhaog{
-  color:white;
-  border-bottom:1px solid rgb(184, 184, 184);
-  margin-left:5%;
-  height:100rpx;
+
+.zhezhaog {
+  color: white;
+  border-bottom: 1px solid rgb(184, 184, 184);
+  margin-left: 5%;
+  height: 100rpx;
   font-size: 35rpx;
   display: flex;
   justify-content: flex-start;
@@ -246,38 +275,44 @@ page {
   flex-direction: row;
   opacity: 1;
 }
-.zhezhaog picker{
-  width:55%;
+
+.zhezhaog picker {
+  width: 55%;
 }
-.zhezhao image{
-  width:35rpx;
-  height:35rpx;
+
+.zhezhao image {
+  width: 35rpx;
+  height: 35rpx;
   opacity: 1;
 }
-.zhezhaobelow{
-  margin-top:80rpx;
+
+.zhezhaobelow {
+  margin-top: 80rpx;
   opacity: 1;
 }
-.zhezhaoa{
-  color:white;
-  border-bottom:1px solid rgb(184, 184, 184);
-  margin-left:5%;
-  height:50rpx;
+
+.zhezhaoa {
+  color: white;
+  border-bottom: 1px solid rgb(184, 184, 184);
+  margin-left: 5%;
+  height: 50rpx;
   line-height: 50rpx;
   font-size: 35rpx;
   opacity: 1;
 }
-.shaixuanbtn{
+
+.shaixuanbtn {
   position: absolute;
-  top:60%;
-  left:50%;
-  width:200rpx;
-  height:70rpx;
-  margin:auto;
-  margin-left:-100rpx;
+  top: 60%;
+  left: 50%;
+  width: 200rpx;
+  height: 70rpx;
+  margin: auto;
+  margin-left: -100rpx;
   line-height: 70rpx;
   opacity: 1;
 }
-.liandong{
-  width:35%;
+
+.liandong {
+  width: 35%;
 }
