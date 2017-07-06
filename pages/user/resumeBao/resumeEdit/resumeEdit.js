@@ -60,6 +60,7 @@ Page({
     fc: true,
     qc: false,
     jc: true,
+    urlPath: app.globalData.https + "/images/"
   },
 
   /**

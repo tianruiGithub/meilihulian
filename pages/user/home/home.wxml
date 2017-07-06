@@ -113,7 +113,7 @@
     </ul>
 
     <view wx:if="{{isSame==true}}" class="input">
-      <textarea maxlength="-1" style="width:100%;height:100%;" value="{{textarea}}" placeholder="请输入文字" bindinput="textarea" />
+      <textarea maxlength="-1" style="width:100%;height:100%;" value="{{textarea}}" bindinput="textarea" />
     </view>
 
     <view wx:if="{{isSame==true}}" class="issue">
@@ -162,8 +162,15 @@
         <view class="name">{{item.name}}</view>
         <view class="title">{{item.city}}</view>
         <view class="classname">
-          {{item.shenfen}}
-          <!--<image class="icon" src="../../images/ji.png"></image>-->
+                <image class="icon" style="{{item.shenfen=='创客'?'display:block':'display:none'}}" src="{{urlPath}}chuangClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='数客'?'display:block':'display:none'}}" src="{{urlPath}}shuClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='嗨客'?'display:block':'display:none'}}" src="{{urlPath}}haiClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='威客'?'display:block':'display:none'}}" src="{{urlPath}}weiClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='慧客'?'display:block':'display:none'}}" src="{{urlPath}}huiClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='智客'?'display:block':'display:none'}}" src="{{urlPath}}zhiClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='师客'?'display:block':'display:none'}}" src="{{urlPath}}shiClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='金客'?'display:block':'display:none'}}" src="{{urlPath}}jinClick.png"></image>
+          <image class="icon" style="{{item.shenfen=='极客'?'display:block':'display:none'}}" src="{{urlPath}}jiClick.png"></image>
         </view>
       </view>
       <view class="textRight" data-type="{{item.isguanzhu}}" data-index='{{index}}' data-id="{{item.userid}}" bindtap="guanzhu"></view>

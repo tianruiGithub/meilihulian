@@ -178,6 +178,7 @@ Page({
       temp.question = decodeURI(list[i].question)
       box.push(temp)
     }
+    console.log(box)
     return box;
   }
 })

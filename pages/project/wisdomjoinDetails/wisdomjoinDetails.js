@@ -39,6 +39,9 @@ Page({
     focusf: false,
     memidt: '',
     nums: '',
+    valuef: "",
+    count: "",
+    hidden: 0
   },
 
   /**
@@ -49,14 +52,14 @@ Page({
     that.setData({
       memid: app.globalData.huiyuanInfo.userid,
       question_id: options.project_id,
-      projectUser:options.project_user
+      projectUser: options.project_user
     })
-    if(that.data.projectUser == that.data.memid){
+    if (that.data.projectUser == that.data.memid) {
       that.setData({
         shenfen: "1"
       })
     }
-    else{
+    else {
       that.setData({
         shenfen: "0"
       })
@@ -87,7 +90,29 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    var that=this
+    if (that.data.projectUser == that.data.memid) {
+      that.setData({
+        shenfen: "1"
+      })
+    }
+    else {
+      that.setData({
+        shenfen: "0"
+      })
+    }
+    if (that.data.shenfen == 0) {
+      that.setData({
+        sfhide: true
+      })
+    }
+    wx.showLoading({
+      title: "加载中",
+      mask: true,
+      success: function () {
+        that.init("up")
+      }
+    })
   },
 
   /**
@@ -147,7 +172,7 @@ Page({
         memid: that.data.memid,
       }),
       success: function (res) {
-          wx.hideLoading()
+        wx.hideLoading()
         var data = JSON.stringify(res.data);
         var list = JSON.parse(data)
         console.log("智合详情=" + data)
@@ -155,6 +180,7 @@ Page({
         that.setData({
           zhtitle: list.data[0].question_info[0].title,
           zhcontent: decodeURI(list.data[0].question_info[0].question),
+          count: list.data[0].question_info[0].counts
         })
         if (type == "up") {
           if (list.data[1].Comment_list.length > 0) {
@@ -232,6 +258,15 @@ Page({
             if (i == index) {
               temp[i].state = type
             }
+          }
+          if (type == 1) {
+            that.setData({
+              count: that.data.count - 1
+            })
+          } else {
+            that.setData({
+              count: that.data.count + 1
+            })
           }
           console.log("list=" + that.data.list)
           console.log("temp=" + temp)
@@ -637,10 +672,9 @@ Page({
   * 发布
   */
   fabu: function () {
-    var that = this
-    that.setData({
-      fabudis: "block",
-      focusf: true
+    var that=this
+    wx.navigateTo({
+      url: '../../project/wisdomjoinRequestPublish/wisdomjoinRequestPublish?memid=' + that.data.memid + "&qid=" + that.data.question_id
     })
   },
   fabuinput: function (e) {
@@ -693,11 +727,30 @@ Page({
               duration: 2000
             })
           }
+          that.setData({
+            valuef: "",
+            fabuinput: ""
+          })
         }
       })
     } else {
       that.setData({
         holdf: true
+      })
+    }
+  },
+  /**
+ * 需求展开隐藏
+ */
+  hidden: function () {
+    var that = this
+    if (that.data.hidden == 0) {
+      that.setData({
+        hidden: 1
+      })
+    } else {
+      that.setData({
+        hidden: 0
       })
     }
   }

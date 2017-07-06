@@ -5,7 +5,7 @@
   <view class="titletop">
     <view class="ttl">{{jianliname==""?'请输入名称':jianliname}}</view>
     <view class="ttr" bindtap="xiugaimingcheng">
-      <image src="../../../images/wo_edit.png"></image>
+      <image src="{{urlPath}}wo_edit.png"></image>
       修改名称</view>
   </view>
   <modal title="修改名称" hidden="{{modal}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalconfirm" bindcancel="modalcancel">
@@ -29,12 +29,12 @@
 
 <view class="contt" bindtap="xxzhankai">
   <view>基本信息</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="xxc" style="{{jbxxh==0?'display:none':'display:block'}}">
   <view class="headpic" bindtap="pic">
-    <image src="{{headpic==''?'../../../images/headbackground.png':headpic}}" class="headimg"></image>
-    <image src="../../../images/xiangji.png" class="xiangji"></image>
+    <image src="{{headpic==''?urlPath+'headbackground.png':headpic}}" class="headimg"></image>
+    <image src="{{urlPath}}xiangji.png" class="xiangji"></image>
   </view>
   <view class="xxcon">
     <view class="xxrcon">
@@ -91,7 +91,7 @@
 
 <view class="contt" bindtap="jlzhankai">
   <view>教育经历</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="jlc" style="{{jyjlh==0?'display:none':'display:block'}}">
   <view class="xxcon">
@@ -150,7 +150,7 @@
 
 <view class="contt" bindtap="jyzhankai">
   <view>工作经验</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="jyc" style="{{gzjyh==0?'display:none':'display:block'}}">
   <view class="xxcon">
