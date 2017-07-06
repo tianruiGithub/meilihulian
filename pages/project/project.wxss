@@ -55,7 +55,7 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .tri image {
@@ -94,8 +94,6 @@ page {
   height: 200rpx;
   background: white;
   font-size: 4vw;
-  margin: 30rpx 0;
-  padding: 0 30rpx;
 }
 
 .below {
