@@ -185,7 +185,7 @@
   <view class="xxcon">
     <view class="xxrcon">
       <view class="classname left">职能</view>
-           <picker bindchange="znchange" value="{{index}}" range="{{initj}}" range-key="name">
+      <picker bindchange="znchange" value="{{index}}" range="{{initj}}" range-key="name">
         <view class="picker">
           {{clevel==""?'未选择职能':clevel}}
         </view>
@@ -197,17 +197,17 @@
       <view class="classname left">职位名称</view>
       <view class="classname" bindtap="zwchange">{{cjob_name}}</view>
     </view>
-      <modal title="职位名称" hidden="{{zwm}}" confirm-text="确定" cancel-text="取消" bindconfirm="zwco" bindcancel="zwca">
+    <modal title="职位名称" hidden="{{zwm}}" confirm-text="确定" cancel-text="取消" bindconfirm="zwco" bindcancel="zwca">
       <input placeholder="请输入姓名" bindinput="inputzw" />
     </modal>
   </view>
   <view class="xxcon">
     <view class="xxrcon">
       <view class="classname left">工作类型</view>
-          <radio-group bindchange="jobtype">
-          <radio value="1" checked="{{qc}}" class="radio" />全职
-          <radio value="0" checked="{{jc}}" class="radio" />兼职
-        </radio-group>
+      <radio-group bindchange="jobtype">
+        <radio value="1" checked="{{qc}}" class="radio" />全职
+        <radio value="0" checked="{{jc}}" class="radio" />兼职
+      </radio-group>
     </view>
   </view>
   <view class="xxcon">
@@ -217,7 +217,7 @@
     </view>
   </view>
   <view class="textarea">
-    <textarea placeholder="{{cdescs}}" bindinput="textarea"/>
+    <textarea placeholder="{{cdescs}}" bindinput="textarea" />
   </view>
 
 </view>
