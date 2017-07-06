@@ -59,13 +59,13 @@
           </view>
         </view>
         <view class="below">
-          <view class="left">观察团：
+          <view class="left">观察团:
             <text>{{item.guanchatuan}}</text>
           </view>
-          <view class="mid">体验团：
+          <view class="mid">体验团:
             <text>{{item.tiyantuan}}</text>
           </view>
-          <view class="right">专家团：
+          <view class="right">专家团:
             <text>{{item.zhuanjiatuan}}</text>
           </view>
         </view>
