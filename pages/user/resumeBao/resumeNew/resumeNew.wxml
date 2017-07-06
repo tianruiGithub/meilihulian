@@ -35,7 +35,7 @@
 </view>
 <view class="xxc" style="{{jbxxh==0?'display:none':'display:block'}}">
   <view class="headpic" bindtap="pic">
-    <image src="{{headpic==''?'{{urlPath}}headbackground.png':headpic}}" class="headimg"></image>
+    <image src="{{headpic==''?urlPath+'headbackground.png':headpic}}" class="headimg"></image>
     <image src="{{urlPath}}xiangji.png" class="xiangji"></image>
   </view>
   <view class="xxcon">

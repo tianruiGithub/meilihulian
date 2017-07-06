@@ -32,11 +32,19 @@ page {
   padding-bottom: 16rpx;
   text-align: left;
 }
-
 .content {
+  width:100%;
   font-size: 9pt;
   line-height: 1.4;
-  color: #888;
+  color: #353535;
+  letter-spacing: 1.2rpx;
+}
+.content1 {
+  float:right;
+  width:calc(100% - 170rpx);
+  font-size: 9pt;
+  line-height: 1.4;
+  color: #353535;
   letter-spacing: 1.2rpx;
 }
 
@@ -136,6 +144,8 @@ page {
   color: #576b95;
   width: 190rpx;
   padding-top: 30rpx;
+  text-align: right;
+ 
 }
 
 .click {

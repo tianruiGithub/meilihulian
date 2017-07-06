@@ -72,7 +72,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '美丽互联',
+      desc: app.globalData.shareContent,
+      path: '/pages/project/project'
+    }
   },
   //监听输入内容
   recordContent: function (e) {
@@ -84,17 +88,10 @@ Page({
   //发布需求
   publish: function () {
     var that = this
-    if (that.data.content == "") {
-      wx.showToast({
-        title: '需求问题不能为空',
-        duration: 1500
-      })
-      return;
-    }
-    if (that.data.content.indexOf("'") != -1) {
+    if (that.data.content.indexOf("'") != -1){
       wx.showToast({
         title: '不能输入单引号，请输入双引号',
-        duration: 1500
+        duration:1500
       })
       return;
     }
@@ -104,23 +101,21 @@ Page({
       success: function () {
         wx.request({
           url: app.globalData.https + '/x/operate/Zhihe_Add.ashx',
-          method: "POST",
+          method:"POST",
           data: ({
             method: "Add_ZhiHe",
             project_id: that.data.projectId,
             memid: that.data.userId,
             question: encodeURI(that.data.content)
           }),
-          success: function (res) {
+          success: function (res) {       
             if (res.data == "1") {
               wx.showToast({
                 title: '需求发布成功',
                 icon: 'success',
                 duration: 1500
               })
-              setTimeout(function () {
                 wx.navigateBack()
-              }, 500)
             }
             else {
               wx.showToast({
@@ -131,7 +126,7 @@ Page({
             }
             wx.hideLoading()
           },
-          fail: function () {
+          fail:function(){
             wx.showToast({
               title: '数据请求失败',
               icon: 'success',

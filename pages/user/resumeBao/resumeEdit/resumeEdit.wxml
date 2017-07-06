@@ -5,7 +5,7 @@
   <view class="titletop">
     <view class="ttl">{{jianliname==""?'请输入名称':jianliname}}</view>
     <view class="ttr" bindtap="xiugaimingcheng">
-      <image src="../../../images/wo_edit.png"></image>
+      <image src="{{urlPath}}wo_edit.png"></image>
       修改名称</view>
   </view>
   <modal title="修改名称" hidden="{{modal}}" confirm-text="确定" cancel-text="取消" bindconfirm="modalconfirm" bindcancel="modalcancel">
@@ -29,12 +29,12 @@
 
 <view class="contt" bindtap="xxzhankai">
   <view>基本信息</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="xxc" style="{{jbxxh==0?'display:none':'display:block'}}">
   <view class="headpic" bindtap="pic">
-    <image src="{{headpic==''?'../../../images/headbackground.png':headpic}}" class="headimg"></image>
-    <image src="../../../images/xiangji.png" class="xiangji"></image>
+    <image src="{{headpic==''?urlPath+'headbackground.png':headpic}}" class="headimg"></image>
+    <image src="{{urlPath}}xiangji.png" class="xiangji"></image>
   </view>
   <view class="xxcon">
     <view class="xxrcon">
@@ -91,7 +91,7 @@
 
 <view class="contt" bindtap="jlzhankai">
   <view>教育经历</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="jlc" style="{{jyjlh==0?'display:none':'display:block'}}">
   <view class="xxcon">
@@ -150,7 +150,7 @@
 
 <view class="contt" bindtap="jyzhankai">
   <view>工作经验</view>
-  <image src="../../../images/right.png"></image>
+  <image src="{{urlPath}}right.png"></image>
 </view>
 <view class="jyc" style="{{gzjyh==0?'display:none':'display:block'}}">
   <view class="xxcon">
@@ -185,7 +185,7 @@
   <view class="xxcon">
     <view class="xxrcon">
       <view class="classname left">职能</view>
-           <picker bindchange="znchange" value="{{index}}" range="{{initj}}" range-key="name">
+      <picker bindchange="znchange" value="{{index}}" range="{{initj}}" range-key="name">
         <view class="picker">
           {{clevel==""?'未选择职能':clevel}}
         </view>
@@ -197,17 +197,17 @@
       <view class="classname left">职位名称</view>
       <view class="classname" bindtap="zwchange">{{cjob_name}}</view>
     </view>
-      <modal title="职位名称" hidden="{{zwm}}" confirm-text="确定" cancel-text="取消" bindconfirm="zwco" bindcancel="zwca">
+    <modal title="职位名称" hidden="{{zwm}}" confirm-text="确定" cancel-text="取消" bindconfirm="zwco" bindcancel="zwca">
       <input placeholder="请输入姓名" bindinput="inputzw" />
     </modal>
   </view>
   <view class="xxcon">
     <view class="xxrcon">
       <view class="classname left">工作类型</view>
-          <radio-group bindchange="jobtype">
-          <radio value="1" checked="{{qc}}" class="radio" />全职
-          <radio value="0" checked="{{jc}}" class="radio" />兼职
-        </radio-group>
+      <radio-group bindchange="jobtype">
+        <radio value="1" checked="{{qc}}" class="radio" />全职
+        <radio value="0" checked="{{jc}}" class="radio" />兼职
+      </radio-group>
     </view>
   </view>
   <view class="xxcon">
@@ -217,7 +217,7 @@
     </view>
   </view>
   <view class="textarea">
-    <textarea placeholder="{{cdescs}}" bindinput="textarea"/>
+    <textarea placeholder="{{cdescs}}" bindinput="textarea" />
   </view>
 
 </view>

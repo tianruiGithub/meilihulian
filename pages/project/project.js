@@ -86,8 +86,8 @@ Page({
     duration: 1000,
     list: [],
     jiantou: 1,
-    arrayname: ["默认","票数", "创建时间", "推荐"],
-    array: [{ name: "默认", id: "votes" },{ name: "票数", id: "votes" }, { name: "创建时间", id: "createtime" }, { name: "推荐", id: "level" },],
+    arrayname: ["默认", "票数", "创建时间", "推荐"],
+    array: [{ name: "默认", id: "votes" }, { name: "票数", id: "votes" }, { name: "创建时间", id: "createtime" }, { name: "推荐", id: "level" },],
     paixu: "默认",
     chaxun: "id",
     zhezhao: 0,
@@ -130,11 +130,11 @@ Page({
   onShow: function () {
     var that = this
     app.login(function (huiyuanInfo) {
-     
-          that.jiazailist(that.data.shengz, that.data.shiz, that.data.hangyez, that.data.chaxun, that.data.jiantou, "up")
-        
-      
-     
+
+      that.jiazailist(that.data.shengz, that.data.shiz, that.data.hangyez, that.data.chaxun, that.data.jiantou, "up")
+
+
+
     })
   },
 
@@ -178,7 +178,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '美丽互联',
+      desc: app.globalData.shareContent,
+      path: '/pages/project/project'
+    }
   },
   shengjiang: function () {
     var that = this
@@ -406,15 +410,15 @@ Page({
         success: function (res) {
           if (res.confirm) {
             wx.navigateTo({
-              url: '../../../pages/user/register/register',
+              url: '../../pages/user/register/register',
             })
           }
         }
       })
-    }else{
-    wx.navigateTo({
-      url: '../../pages/project/details/details?id=' + e.currentTarget.dataset.id + "&type=2"
-    })
+    } else {
+      wx.navigateTo({
+        url: '../../pages/project/details/details?id=' + e.currentTarget.dataset.id + "&type=2"
+      })
     }
   }
 })

@@ -199,10 +199,12 @@ Page({
         //console.log(JSON.stringify(that.data.listt))
         var temp = list.data[1].activity_info
         for (var i = 0; i < temp.length; i++) {
+          temp[i].name = decodeURI(temp[i].name)
           if (temp[i].name.length > 8) {
             temp[i].name = temp[i].name.substr(0, 8) + "..."
           }
           temp[i].activitytime = temp[i].activitytime.substr(0, temp[i].activitytime.length - 3)
+        
         }
         if (type == "up") {
 

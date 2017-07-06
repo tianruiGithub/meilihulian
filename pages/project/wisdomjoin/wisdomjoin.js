@@ -97,7 +97,11 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '美丽互联',
+      desc: app.globalData.shareContent,
+      path: '/pages/project/project'
+    }
   },
   //进入发布新需求
   goToPublish: function () {
@@ -178,6 +182,7 @@ Page({
       temp.question = decodeURI(list[i].question)
       box.push(temp)
     }
+    console.log(box)
     return box;
   }
 })

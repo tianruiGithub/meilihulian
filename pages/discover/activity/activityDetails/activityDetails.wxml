@@ -21,17 +21,17 @@
     </view>
     <image class="Icon" src="{{item.ischarge==0? urlPath+'mianfei.png':urlPath+'shoufei.png'}}"></image>
   </view>
-  <view class="Guests">
+  <view class="Guests" style="{{jiabin==0?'display:none':'display:block'}}">
     <!--
  wx:for="{{listt}}" wx:for-item="itet" wx:for-index="idxt"
 -->
     <view class="title">活动嘉宾</view>
     <scroll-view class="scroll" scroll-x="true" style="display:inline-block;white-space: nowrap;{{itet.length==0?'display:none':'width:100%;display:block'}}">
-    <view class="scrolll">
-      <view class="scrollview" wx:for="{{listt}}" wx:for-item="itet" wx:for-index="idxt">
-        <image class="img" src="{{itet.headpic}}"></image>
-        <view style="height:60rpx;text-align:center;font-siez:9pt">{{itet.zhiwu}}</view>
-      </view>
+      <view class="scrolll">
+        <view class="scrollview" wx:for="{{listt}}" wx:for-item="itet" wx:for-index="idxt">
+          <image class="img" src="{{itet.headpic}}"></image>
+          <view style="height:60rpx;text-align:center;font-siez:9pt">{{itet.zhiwu}}</view>
+        </view>
       </view>
     </scroll-view>
   </view>
@@ -57,4 +57,4 @@
   </view>
 </block>
 <button bindtap="goToJoin" wx:if="{{isJoin == '0'}}" class="canjia" type="primary">参与活动</button>
-<button  wx:if="{{isJoin == '1'}}" disabled="true" class="canjia" type="default">已参与活动</button>
+<button wx:if="{{isJoin == '1'}}" disabled="true" class="canjia" type="default">已参与活动</button>

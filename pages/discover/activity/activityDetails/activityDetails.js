@@ -15,7 +15,8 @@ Page({
     jiantou: 0,
     descs: "",
     isJoin: '1',
-    money: 0
+    money: 0,
+    jiabin:0
   },
 
   /**
@@ -107,7 +108,7 @@ Page({
           list.data[0].activity_info[0].name = list.data[0].activity_info[0].name.substr(0, 17) + "..."
         }
         list.data[0].activity_info[0].activitytime = list.data[0].activity_info[0].activitytime.substr(0, list.data[0].activity_info[0].activitytime.length - 3)
-        // list.data[0].activity_info[0].descs = "你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好你好"
+    
         if (list.data[0].activity_info[0].descs.length > 60) {
           that.setData({
             descs: list.data[0].activity_info[0].descs.substr(0, 60) + "...",
@@ -116,6 +117,11 @@ Page({
         } else {
           that.setData({
             descs: list.data[0].activity_info[0].descs,
+          })
+        }
+        if (list.data[1].guest_info.length>0){
+          that.setData({
+            jiabin:1
           })
         }
         that.setData({

@@ -362,9 +362,9 @@ Page({
                   console.log(res)
                   if (res.data == "yes") {
                     that.setData({
-                      jd1: 'backBlue',
+                      jd1: 'backGrey',
                       jd2: 'backGrey',
-                      jd3: 'false',
+                      jd3: 'true',
                       first: 'none',
                       second: 'none',
                       third: 'block'
