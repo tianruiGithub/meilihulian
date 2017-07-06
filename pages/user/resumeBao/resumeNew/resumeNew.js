@@ -193,17 +193,17 @@ Page({
       that.setData({
         zwm: false,
       })
-      wx.showToast({
-        title: '输入字符过长（20以内）',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入字符过长（20以内)',
       })
     } else if (that.data.inputzw.length == 0) {
       that.setData({
         zwm: false,
       })
-      wx.showToast({
-        title: '内容不能为空',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入内容为空',
       })
     } else {
       that.setData({
@@ -239,17 +239,17 @@ Page({
       that.setData({
         gsm: false,
       })
-      wx.showToast({
-        title: '输入字符过长（20以内）',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入字符过长（20以内)',
       })
     } else if (that.data.inputgs.length == 0) {
       that.setData({
         gsm: false,
       })
-      wx.showToast({
-        title: '内容不能为空',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入内容为空',
       })
     } else {
       that.setData({
@@ -286,18 +286,19 @@ Page({
       that.setData({
         xxm: false,
       })
-      wx.showToast({
-        title: '输入字符过长（20以内）',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入字符过长（20以内)',
       })
     } else if (that.data.inputxx.length == 0) {
       that.setData({
         xxm: false,
       })
-      wx.showToast({
-        title: '内容不能为空',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入内容为空',
       })
+
     } else {
       that.setData({
         xxm: true,
@@ -332,9 +333,9 @@ Page({
       that.setData({
         telm: false,
       })
-      wx.showToast({
-        title: '号码位数错误',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '号码位数错误',
       })
     } else {
       that.setData({
@@ -372,17 +373,17 @@ Page({
       that.setData({
         xmm: true,
       })
-      wx.showToast({
-        title: '输入内容过长(20个字符以内)',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入字符过长（20以内)',
       })
     } else if (that.data.inputxm.length == 0) {
       that.setData({
         xmm: false,
       })
-      wx.showToast({
-        title: '内容不能为空',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入内容为空',
       })
     } else {
       that.setData({
@@ -413,17 +414,17 @@ Page({
       that.setData({
         modal: true,
       })
-      wx.showToast({
-        title: '输入内容过长(20个字符以内)',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入字符过长（20以内)',
       })
     } else if (that.data.input.length == 0) {
       that.setData({
         modal: false,
       })
-      wx.showToast({
-        title: '内容不能为空',
-        icon: 'loading',
+      wx.showModal({
+        title: '格式错误',
+        content: '输入内容为空',
       })
     } else {
       that.setData({
@@ -626,9 +627,9 @@ Page({
               icon: 'success',
             })
           } else {
-            wx.showToast({
-              title: '更新失败',
-              icon: 'loading',
+            wx.showModal({
+              title: '创建失败',
+              content: '',
             })
           }
         },
@@ -639,8 +640,8 @@ Page({
 
     } else {
       wx.showToast({
-        title: '您有内容尚未填写',
-        icon: 'loading',
+        title: '操作失败',
+        icon: '您有内容尚未填写',
       })
     }
   },
