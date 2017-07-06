@@ -22,16 +22,16 @@
     </view>
     <view class="xm-piao-button">
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='0'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">投</text>
+        <text style="margin-left:1px;">待投</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '1'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">荐</text>
+        <text style="margin-left:1px;">已荐</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '2'}}" class="xm-piao-change2">
-        <text style="margin-left:1px;">否</text>
+        <text style="margin-left:1px;">已否</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '3'}}" class="xm-piao-change3">
-        <text style="margin-left:1px;">弃</text>
+        <text style="margin-left:1px;">已弃</text>
       </view>
     </view>
   </view>

@@ -2,19 +2,18 @@
 
 page {
   background-color: #f7f7f7;
-  overflow-x:none
-  ;
+  overflow-x: none;
 }
 
 .top_bg {
   width: 100%;
-  height: 322rpx;
+  height: 338rpx;
 }
 
 .top {
   position: absolute;
   left: 0;
-  top: 16rpx;
+  top: 30rpx;
   width: 100%;
   height: 140rpx;
   display: flex;
@@ -23,7 +22,7 @@ page {
 .xm-image {
   width: 140rpx;
   height: 140rpx;
-  margin: 0px 16rpx auto 16rpx;
+  margin: 0px 30rpx ;
 }
 
 .xm-info {
@@ -43,7 +42,7 @@ page {
   white-space: nowrap;
   word-wrap: break-word;
   word-break: break-all;
-   display: -webkit-box;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
@@ -76,37 +75,41 @@ page {
   line-height: 50rpx;
   text-align: right;
   font-size: 10pt;
-  padding-left:10rpx;
-  border-top:1px solid #09bb07;
-  border-bottom:1px solid #09bb07;
+  padding-left: 10rpx;
+  border-top: 1px solid #09bb07;
+  border-bottom: 1px solid #09bb07;
   border-left: 1px solid #09bb07;
   border-top-left-radius: 24rpx;
   border-bottom-left-radius: 24rpx;
 }
-.xm-piao-flag1{
-  float:right;
-  width:30rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag1 {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
-.xm-piao-flag2{
-  float:right;
-  width:30rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag2 {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
-.xm-piao-flag3{
-  float:right;
-  width:26rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag3 {
+  float: right;
+  width: 26rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
+
 .xm-piao-button {
   width: 100%;
   height: 60rpx;
@@ -116,45 +119,54 @@ page {
 }
 
 .xm-piao-change1 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
   background-color: #09bb07;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .xm-piao-change2 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
-  background-color: #fe6b5b;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
+  background-color: #e64340;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .xm-piao-change3 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
-  background-color: #d0d0d0;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
+  background-color: #ccc;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .middle {
   position: absolute;
   left: 0;
   top: 170rpx;
   width: 100%;
   height: 140rpx;
-  margin-top: 10rpx;
+  margin-top: 26rpx;
 }
 
 .middle-box {
@@ -174,9 +186,11 @@ page {
   height: 140rpx;
   flex: 1;
 }
-.middle-box-item:active,.bottom-box-item:active{
-  background-color:#f0f0f0;
+
+.middle-box-item:active, .bottom-box-item:active {
+  background-color: #f0f0f0;
 }
+
 .middle-item-top, .bottom-item-top {
   width: 100%;
   height: 80rpx;
@@ -198,7 +212,7 @@ page {
 .bottom {
   width: 100%;
   height: 140rpx;
-  margin-top: -10rpx;
+  margin-top:-5rpx;
 }
 
 .bottom-box {
@@ -214,10 +228,10 @@ page {
 }
 
 .title {
-  float:left;
+  float: left;
   width: 100%;
   height: auto;
-  background-color:#f7f7f7;
+  background-color: #f7f7f7;
 }
 
 .title-name {
@@ -289,7 +303,7 @@ page {
 }
 
 .content3 {
-  float:left;
+  float: left;
   width: 100%;
   min-height: 100rpx;
   background-color: white;
@@ -314,18 +328,20 @@ page {
   font-size: 10pt;
   color: #666;
 }
-.cy-box{
-  position:fixed;
-  left:0;
-  bottom:0;
-  height:140rpx;
-  width:100%;
-  background-color:#f7f7f7;
+
+.cy-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 140rpx;
+  width: 100%;
+  background-color: #f7f7f7;
 }
-.cy{
-  margin:30rpx;
-  height:80rpx;
-  line-height:80rpx;
-  color:white;
-  font-size:11pt;
+
+.cy {
+  margin: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: white;
+  font-size: 11pt;
 }
