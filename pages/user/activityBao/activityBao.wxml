@@ -76,7 +76,7 @@
           </view>
         </view>
         <view class="details">
-          <view class="cardDetails" bindtap="{{item.address==''?'':'achange'}}" data-index="{{index}}" data-id="{{item.ID}}" data-people="{{item.people}}" data-province="{{item.province}}" data-city="{{item.city}}" data-address="{{item.address}}">
+          <view class="cardDetails" bindtap="{{item.address==''?'':'achange'}}" data-index="{{index}}" data-id="{{item.ID}}" data-people="{{item.people}}" data-province="{{item.province}}" data-city="{{item.city}}" data-address="{{item.address}}" data-cpeople="{{item.contact_name}}" data-tel="{{item.contact_tel}}">
             <view>地址和人数</view>
             <view class="cardDetailsr">
               <view class="classname" style="margin-right:20rpx">{{item.address==""?'线上':item.address}}/{{item.people==0?'无':item.people}}</view>
@@ -99,7 +99,7 @@
               <image class="Icon" src="{{urlPath}}arrows.png"></image>
             </view>
           </view>
-          <view class="cardDetails" bindtap="jchange" data-index="{{index}}" data-id="{{item.ID}}" >
+          <view class="cardDetails" bindtap="jchange" data-index="{{index}}" data-id="{{item.ID}}">
             <view>嘉宾</view>
 
             <image class="Icon" src="{{urlPath}}arrows.png"></image>
@@ -131,7 +131,7 @@
             <view class="classname" style="color:#888">{{item.activitytime}}</view>
             <view class="classname" style="color:#888">{{item.city}}</view>
           </view>
-          <image class="img" src="{{item.type==1?'{{urlPath}}xianshang.png':'{{urlPath}}xianxia.png'}}"></image>
+          <image class="img" src="{{item.type==1?urlPath+'xianshang.png':urlPath+'xianxia.png'}}"></image>
           <view class="wid">
             <button class="preview" type="primary" bindtap="jumpdetail" data-id="{{item.ID}}">预览</button>
           </view>
@@ -241,6 +241,15 @@
     <input class="inputs" placeholder="{{people==''?'请输入活动人数':people}}" bindinput="inputp" />
   </view>
 
+  <view class="text">请输入联系人信息</view>
+  <view class="list">
+    <view class="name">联系人:</view>
+    <input class="inputs" placeholder="{{cpeople==''?'请输入联系人':cpeople}}" bindinput="inputr" bindblur="inputrb" />
+  </view>
+  <view class="list">
+    <view class="name">联系电话:</view>
+    <input class="inputs" type="number" placeholder="{{tel==''?'请输入联系电话':tel}}" bindinput="inputt" bindblur="inputtb" />
+  </view>
   <!--按钮-->
   <view class="btn">
     <view class="btnLeft" bindtap="acan">取消</view>
@@ -360,7 +369,7 @@
         <view class="btnUp1" bindtap="canj" data-id="{{item.id}}" data-index="{{index}}">取消邀请</view>
       </view>
     </view>
- 
+
   </scroll-view>
 
   <!--按钮-->

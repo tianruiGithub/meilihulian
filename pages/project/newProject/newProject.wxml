@@ -3,7 +3,7 @@
   <view class="text">所属行业</view>
   <picker bindchange="hangyeChange" value="{{index}}" range="{{hangyeList}}" range-key="name">
     <view class="neirong ">
-      <text class="overFlowText">{{selectedHangye}}
+      <text class="center">{{selectedHangye}}
       </text>
     </view>
   </picker>

@@ -24,7 +24,13 @@ Page({
     tuantype: '',
     tuanname: '',
     descs: "",
-    img: []
+    img: [],
+    queren: true,
+    name: "",
+    address: "",
+    tel: "",
+    textarea: "",
+    liyou:true,
   },
 
   /**
@@ -33,9 +39,9 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      tuanid: options.id,
+      tuanid: 129,//options.id,
       memid: app.globalData.huiyuanInfo.userid,
-      tuanname: "观察团"
+      tuanname: "体验团"
     })
     // console.log(app.globalData.huiyuanInfo)
     // console.log(app.globalData.huiyuanInfo.userid)
@@ -125,7 +131,7 @@ Page({
 
       }),
       success: function (res) {
-          wx.hideLoading()
+        wx.hideLoading()
         var data = JSON.stringify(res.data);
         var list = JSON.parse(data)
         console.log("观察团信息=" + data)
@@ -382,5 +388,137 @@ Page({
     })
     console.log("展开")
     console.log(type)
+  },
+
+  /**
+ *  申请
+ */
+  shenqing: function () {
+    var that = this
+    that.setData({
+      queren: false
+    })
+    wx.request({
+      url: app.globalData.https + '/x/Operate/Home.ashx',
+      data: ({
+        method: "Get_Address",
+        memid: that.data.memid
+      }),
+      success: function (res) {
+        var data = JSON.stringify(res.data);
+        var list = JSON.parse(data)
+        console.log("信息=" + data)
+        that.setData({
+          name: list.info[0].xingming,
+          address: list.info[0].shoppingaddress,
+          tel: list.info[0].shoujihao,
+        })
+      },
+      fail: function () {
+
+      }
+    })
+
+  },
+  inputn: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  inputnb: function (e) {
+    this.setData({
+      name: e.detail.value
+    })
+  },
+  inputa: function (e) {
+    this.setData({
+      address: e.detail.value
+    })
+  },
+  inputab: function (e) {
+    this.setData({
+      address: e.detail.value
+    })
+  },
+  inputt: function (e) {
+    this.setData({
+      tel: e.detail.value
+    })
+  },
+  inputtb: function (e) {
+    this.setData({
+      tel: e.detail.value
+    })
+  },
+  textarea: function (e) {
+    this.setData({
+      textarea: e.detail.value
+    })
+  },
+  textareab: function (e) {
+    this.setData({
+      textarea: e.detail.value
+    })
+  },
+  xxcon: function () {
+    var that = this
+    console.log("name="+that.data.name)
+    console.log("address=" + that.data.address)
+    console.log("tel=" + that.data.tel)
+    if(that.data.name==""||that.data.address==""||that.data.tel==""){
+      wx.showModal({
+        title: '信息错误',
+        content: '请输入完整信息',
+      })
+    }else{
+      wx.request({
+        url: app.globalData.https + '/x/Operate/Home.ashx',
+        data:({
+          method:"Update_address",
+          memid:that.data.memid,
+          xingming:that.data.name,
+          shoujihao:that.data.tel,
+          shoppingaddress:that.data.address
+        }),
+        success:function(res){
+          that.setData({
+            queren: true,
+            liyou:false
+          })
+        },
+        fail:function(){
+          wx.showModal({
+            title: '更新失败',
+            content: '',
+          })
+        }
+      })
+     
+    }
+  },
+  xxcan: function () {
+    this.setData({
+      queren: true
+    })
+  },
+  lycan:function(){
+    this.setData({
+      liyou:true
+    })
+  },
+  lycon: function () {
+    var that=this
+    if (that.data.textarea==""){
+      wx.showModal({
+        title: '信息错误',
+        content: '请输入申请理由',
+      })
+    }else{
+      that.setData({
+        liyou: true
+      })
+    }
+   
+    console.log("textarea=" + that.data.textarea)
   }
 })
