@@ -1,20 +1,19 @@
 /* xiangqing.wxss */
 
 page {
-  background-color: #f7f7f7;
-  overflow-x:none
-  ;
+  background-color: #efeff4;
+  overflow-x: none;
 }
 
 .top_bg {
   width: 100%;
-  height: 322rpx;
+  height: 399rpx;
 }
 
 .top {
   position: absolute;
   left: 0;
-  top: 16rpx;
+  top: 30rpx;
   width: 100%;
   height: 140rpx;
   display: flex;
@@ -23,7 +22,7 @@ page {
 .xm-image {
   width: 140rpx;
   height: 140rpx;
-  margin: 0px 16rpx auto 16rpx;
+  margin: 0px 30rpx;
 }
 
 .xm-info {
@@ -43,7 +42,7 @@ page {
   white-space: nowrap;
   word-wrap: break-word;
   word-break: break-all;
-   display: -webkit-box;
+  display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;
 }
@@ -76,37 +75,41 @@ page {
   line-height: 50rpx;
   text-align: right;
   font-size: 10pt;
-  padding-left:10rpx;
-  border-top:1px solid #09bb07;
-  border-bottom:1px solid #09bb07;
+  padding-left: 10rpx;
+  border-top: 1px solid #09bb07;
+  border-bottom: 1px solid #09bb07;
   border-left: 1px solid #09bb07;
   border-top-left-radius: 24rpx;
   border-bottom-left-radius: 24rpx;
 }
-.xm-piao-flag1{
-  float:right;
-  width:30rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag1 {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
-.xm-piao-flag2{
-  float:right;
-  width:30rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag2 {
+  float: right;
+  width: 30rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
-.xm-piao-flag3{
-  float:right;
-  width:26rpx;
-  height:30rpx;
-  margin-top:9rpx;
-  margin-left:10rpx;
-  margin-right:10rpx;
+
+.xm-piao-flag3 {
+  float: right;
+  width: 26rpx;
+  height: 30rpx;
+  margin-top: 9rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }
+
 .xm-piao-button {
   width: 100%;
   height: 60rpx;
@@ -116,50 +119,60 @@ page {
 }
 
 .xm-piao-change1 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
   background-color: #09bb07;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .xm-piao-change2 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
-  background-color: #fe6b5b;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
+  background-color: #e64340;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .xm-piao-change3 {
-  width: 52rpx;
-  height: 52rpx;
-  border: 2px solid White;
-  background-color: #d0d0d0;
+  width: 80rpx;
+  height: 80rpx;
+  border: 3px solid White;
+  background-color: #ccc;
   border-radius: 26px;
   text-align: center;
-  line-height: 53rpx;
+  line-height: 80rpx;
   font-size: 9pt;
-  color:white;
+  color: white;
+  margin-right: 10px;
+  margin-top: -10rpx;
 }
+
 .middle {
   position: absolute;
   left: 0;
   top: 170rpx;
   width: 100%;
   height: 140rpx;
-  margin-top: 10rpx;
+  margin-top: 26rpx;
 }
 
 .middle-box {
   height: 140rpx;
-  margin: 0rpx 16rpx 0rpx 16rpx;
+  margin: 0rpx 16rpx;
+  padding: 30rpx 0;
   border-top: 1px solid #f0f0f0;
   border-left: 0px solid #f0f0f0;
   border-right: 0px solid #f0f0f0;
@@ -171,19 +184,21 @@ page {
 }
 
 .middle-box-item, .bottom-box-item {
-  height: 140rpx;
+  margin-top: 30rpx;
+  height: 80rpx;
   flex: 1;
 }
-.middle-box-item:active,.bottom-box-item:active{
-  background-color:#f0f0f0;
+
+.middle-box-item:active, .bottom-box-item:active {
+  background-color: #f0f0f0;
 }
+
 .middle-item-top, .bottom-item-top {
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
   font-size: 11pt;
-  color: #98c396;
+  color: #576b95;
   text-align: center;
+  margin-bottom: 16rpx;
 }
 
 .middle-item-bottom, .bottom-item-bottom {
@@ -193,93 +208,94 @@ page {
   font-size: 10pt;
   color: #888;
   text-align: center;
+  padding-bottom: 30rpx;
 }
 
 .bottom {
   width: 100%;
-  height: 140rpx;
-  margin-top: -10rpx;
+  height: 196rpx;
+  margin-top: -11rpx;
 }
 
 .bottom-box {
   height: 140rpx;
-  margin: 0rpx 16rpx 0rpx 16rpx;
+  margin: 0rpx 16rpx;
+  padding: 30rpx 0;
   border-left: 0px solid #f0f0f0;
   border-right: 0px solid #f0f0f0;
   border-bottom: 0px solid #f0f0f0;
-  background-color: white;
+  background-color: #fff;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
   display: flex;
 }
 
 .title {
-  float:left;
   width: 100%;
   height: auto;
-  background-color:#f7f7f7;
 }
 
 .title-name {
   float: left;
   height: auto;
-  font-size: 11pt;
-  color: #888;
-  margin: 30rpx 16rpx 16rpx 16rpx;
+  font-size: 9pt;
+  color: #353535;
+  margin: 30rpx 0rpx 16rpx 30rpx;
 }
 
 .title-right {
   float: right;
-  font-size: 11pt;
+  font-size: 9pt;
   color: #98c396;
-  margin: 30rpx 16rpx 16rpx 16rpx;
+  margin: 30rpx 30rpx 16rpx 0rpx;
 }
 
 .content1 {
   width: 100%;
-  min-height: 180rpx;
   display: flex;
   background-color: white;
+  height: aauto;
 }
 
 .user-head {
-  width: 100rpx;
-  height: 100rpx;
-  border-radius: 50rpx;
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
   margin: 30rpx;
 }
 
 .user-info {
   width: auto;
-  height: 180rpx;
   flex: 1;
 }
 
 .user-name {
   float: left;
   width: 100%;
-  height: 80rpx;
-  line-height: 80rpx;
-  color: #333;
-  font-size: 12pt;
-  margin-top: 13rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  color: #888;
+  font-size: 13pt;
+  margin-top: 30rpx;
 }
 
 .user-introduce {
   float: left;
-  width: 100%;
-  min-height: 80rpx;
-  font-size: 10pt;
-  color: #666;
+  min-height: 70rpx;
+  font-size: 9pt;
+  color: #888;
+  line-height: 1.4;
+  letter-spacing: 1.2rpx;
+  margin-bottom: 16rpx;
+  margin-right: 30rpx;
 }
 
 .content2 {
-  width: 100%;
-  min-height: 180rpx;
-  padding-top: 10rpx;
+  min-height: 100rpx;
   background-color: white;
-  display: flex;
-  flex-direction: column;
+  color: #888;
+  font-size: 9pt;
+  padding: 16rpx 0;
 }
 
 .xm-pic {
@@ -289,11 +305,10 @@ page {
 }
 
 .content3 {
-  float:left;
-  width: 100%;
+  float: left;
   min-height: 100rpx;
   background-color: white;
-  color: #444;
+  color: #888;
   font-size: 10pt;
   padding-top: 20rpx;
 }
@@ -310,22 +325,38 @@ page {
 
 .introduce {
   min-height: 50rpx;
-  margin: 16rpx;
-  font-size: 10pt;
-  color: #666;
+  margin: 0 30rpx;
+  font-size: 9pt;
+  color: #888;
+  line-height: 1.4;
+  letter-spacing: 1.2rpx;
 }
-.cy-box{
-  position:fixed;
-  left:0;
-  bottom:0;
-  height:140rpx;
-  width:100%;
-  background-color:#f7f7f7;
+
+.cy-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 140rpx;
+  width: 100%;
+  background-color: #efeff4;
 }
-.cy{
-  margin:30rpx;
-  height:80rpx;
-  line-height:80rpx;
-  color:white;
-  font-size:11pt;
+
+.cy {
+  margin: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: white;
+  font-size: 11pt;
+}
+
+.WxEmojiView , wxParse-inline {
+  min-height: 50rpx;
+  font-size: 9pt;
+  color: #888;
+  line-height: 1.4;
+  letter-spacing: 1.2rpx;
+  word-wrap:break-word;
+}
+.both{
+  clear: both;
 }

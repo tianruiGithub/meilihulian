@@ -22,16 +22,16 @@
     </view>
     <view class="xm-piao-button">
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='0'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">投</text>
+        <text style="margin-left:1px;">待投</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '1'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">荐</text>
+        <text style="margin-left:1px;">已荐</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '2'}}" class="xm-piao-change2">
-        <text style="margin-left:1px;">否</text>
+        <text style="margin-left:1px;">已否</text>
       </view>
       <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '3'}}" class="xm-piao-change3">
-        <text style="margin-left:1px;">弃</text>
+        <text style="margin-left:1px;">已弃</text>
       </view>
     </view>
   </view>
@@ -98,15 +98,16 @@
 <view class="content1">
   <image bindtap="goToHome" class="user-head" src="{{xm_csr_image}}"></image>
   <view class="user-info">
-    <text class="user-name">{{xm_csr_name}}</text>
-    <text class="user-introduce">{{xm_csr_shuo}}</text>
+    <view class="user-name">{{xm_csr_name}}</view>
+    <view class="user-introduce">{{xm_csr_shuo}}</view>
   </view>
 </view>
 <view class="title">
   <text class="title-name">项目介绍</text>
   <text bindtap="goToXgzz" class="title-right">相关资质</text>
+  <view class="both"></view>
 </view>
-<view class="content2" style="width:{{winWidth}}px">
+<view class="content2" >
   <!--<scroll-view wx:if="{{isHidden == false}}" scroll-x="true" style="height:200rpx;display:inline-block;white-space: nowrap;">
     <block wx:for="{{xm_pics}}" wx:key="{{xm_pics}}">
       <image bindtap="preview" data-index="{{index}}" mode="aspectFill" style="width:120px;height:100px;margin:5px" src="{{item.pic}}"></image>
