@@ -214,7 +214,7 @@ Page({
                     })
                     setTimeout(function(){
                       wx.navigateBack()
-                    },2000)
+                    },500)
 
                   }
                   else {

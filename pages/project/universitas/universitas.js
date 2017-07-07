@@ -198,13 +198,11 @@ Page({
           },
           fail: function (res) {
             wx.hideLoading()
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '数据加载失败',
+              showCancel: false
             })
-            setTimeout(function(){
-              wx.navigateBack()
-            },2000)
           }
         })
       }
@@ -267,9 +265,10 @@ Page({
       })
     }
     else{
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration:1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -280,9 +279,10 @@ Page({
         url: '../../../pages/project/universitasJobEdit/universitasJobEdit?job_id=' + e.currentTarget.dataset.id,
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -294,9 +294,10 @@ Page({
         url: '../../../pages/project/universitasJobAdd/universitasJobAdd?project_id=' + that.data.projectId + '&type=2'
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -307,9 +308,10 @@ Page({
         url: '../../../pages/project/universitasJobEdit/universitasJobEdit?job_id=' + e.currentTarget.dataset.id,
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -320,9 +322,10 @@ Page({
         url: '../../../pages/project/universitasJobApply/universitasJobApply?job_id=' + e.currentTarget.dataset.id+"&type=1"
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -333,9 +336,10 @@ Page({
         url: '../../../pages/project/universitasJobApply/universitasJobApply?job_id=' + e.currentTarget.dataset.id+"&type=2"
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -346,9 +350,10 @@ Page({
         url: '../../../pages/project/universitasSurrender/universitasSurrender?job_id=' + e.currentTarget.dataset.id + "&state=1"
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -359,9 +364,10 @@ Page({
         url: '../../../pages/project/universitasJobApplicant/universitasJobApplicant?job_id=' + e.currentTarget.dataset.id + "&job_name=" + e.currentTarget.dataset.name
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -373,9 +379,10 @@ Page({
         url: '../../../pages/project/universitasRecruitAddUp/universitasRecruitAddUp?job_id=' + e.currentTarget.dataset.id
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -387,9 +394,10 @@ Page({
         url: '../../../pages/project/universitasRecruitEditUp/universitasRecruitEditUp?job_id=' + e.currentTarget.dataset.id + "&project_id=" + that.data.projectId
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -401,9 +409,10 @@ Page({
         url: '../../../pages/project/universitasJobUpApply/universitasJobUpApply?job_id=' + e.currentTarget.dataset.id+"&project_user="+that.data.projectUser
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -415,9 +424,10 @@ Page({
         url: '../../../pages/project/universitasRecruitAddDown/universitasRecruitAddDown?job_id=' + e.currentTarget.dataset.id
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -429,9 +439,10 @@ Page({
         url: '../../../pages/project/universitasRecruitEditDown/universitasRecruitEditDown?job_id=' + e.currentTarget.dataset.id+"&project_id="+that.data.projectId
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -443,9 +454,10 @@ Page({
         url: '../../../pages/project/universitasJobDownApply/universitasJobDownApply?job_id=' + e.currentTarget.dataset.id+"&project_user"+that.data.projectUser
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   },
@@ -456,11 +468,11 @@ Page({
         url: '../../../pages/project/universitasSurrender/universitasSurrender?job_id=' + e.currentTarget.dataset.id + "&state=0"
       })
     } else {
-      wx.showToast({
-        title: '抱歉，您不是项目方',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '抱歉，您不是项目方',
+        showCancel: false
       })
     }
   }
-
 })

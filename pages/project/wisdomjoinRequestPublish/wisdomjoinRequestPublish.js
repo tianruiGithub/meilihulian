@@ -226,8 +226,11 @@ Page({
               title: '发布成功',
               icon: 'success',
             })
-            wx.navigateBack({
-            })
+            setTimout(function(){
+              wx.navigateBack({
+              })
+            },500)
+           
           } else {
             wx.showToast({
               title: '发布失败',

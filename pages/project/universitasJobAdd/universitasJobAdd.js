@@ -103,16 +103,18 @@ Page({
   //first下一步
   firstNext: function () {
     if (this.data.name.length == 0) {
-      wx.showToast({
-        title: '请输入职位名称',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请输入职位名称',
+        showCancel: false
       })
       return;
     }
     if (this.data.name.length > 20) {
-      wx.showToast({
-        title: '职位名称不能超过20个字',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '职位名称不能超过20个字',
+        showCancel: false
       })
       return;
     }
@@ -131,9 +133,10 @@ Page({
   //second下一步
   secondNext: function () {
     if (this.data.descs.length== 0) {
-      wx.showToast({
-        title: '请输入职位要求',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请输入职位要求',
+        showCancel: false
       })
       return;
     }
@@ -358,24 +361,22 @@ Page({
                     })
                     setTimeout(function(){
                       wx.navigateBack()
-                    },2000)
+                    },500)
                   }
                   else {
-                    wx.showToast({
-                      title: '添加新职位失败',
-                      duration: 1500
+                    wx.showModal({
+                      title: '提示',
+                      content: '添加新职位失败',
+                      showCancel: false
                     })
                   }
                 },
                 fail: function (res) {
-                  wx.hideLoading()
-                  wx.showToast({
-                    title: '数据请求失败',
-                    duration: 1500
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
                   })
-                  setTimeout(function () {
-                    wx.navigateBack()
-                  }, 2000)
                 }
               })
             }

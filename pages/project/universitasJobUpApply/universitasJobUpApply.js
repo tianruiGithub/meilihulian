@@ -166,7 +166,10 @@ Page({
                       title: '申请加入成功',
                       duration: 1500
                     })
-                    wx.navigateBack()
+                    setTimeout(function(){
+                      wx.navigateBack()
+                    },500)
+
                   }
                   else {
                     wx.showToast({

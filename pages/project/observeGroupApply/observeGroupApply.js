@@ -26,10 +26,10 @@ Page({
     //秒
     second: '00',
     //是否结束
-    isOver:true,
+    isOver: true,
     projectId: '',
-    groupType:'',
-    isShenqing:'0'
+    groupType: '',
+    isShenqing: '0'
   },
 
   /**
@@ -38,8 +38,8 @@ Page({
   onLoad: function (options) {
     this.setData({
       groupId: options.group_id,
-      projectId:options.project_id,
-      groupType:options.group_type
+      projectId: options.project_id,
+      groupType: options.group_type
     })
     this.loadInfo()
   },
@@ -55,7 +55,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-   
+
   },
 
   /**
@@ -109,7 +109,7 @@ Page({
           data: {
             method: "Get_Join_Santuan",
             id: that.data.groupId,
-            memid:app.globalData.huiyuanInfo.userid
+            memid: app.globalData.huiyuanInfo.userid
           },
           header: {
             'content-type': 'application/json'
@@ -121,7 +121,7 @@ Page({
             that.setData({
               introduce: decodeURI(info.descs),
               dateTime: info.date,
-              isShenqing:info.isshenqing
+              isShenqing: info.isshenqing
             })
             that.setData({
               date: that.convertToDate(info.date),
@@ -129,16 +129,14 @@ Page({
             })
             //开始倒计时
             that.countDown()
-           
+
           },
           fail: function (res) {
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '数据加载失败',
+              showCancel: false
             })
-            setTimeout(function(){
-              wx.navigateBack()
-            },2000)
           }
         })
       }
@@ -166,7 +164,7 @@ Page({
         var minute = parseInt((date - curDate) / 1000 / 60 - (day * 24 * 60) - (hour * 60))
         var second = parseInt((date - curDate) / 1000) - (day * 24 * 3600) - (hour * 3600) - (minute * 60)
         that.setData({
-          isOver:false,
+          isOver: false,
           day: day,
           hour: that.convertToValue(hour),
           minute: that.convertToValue(minute),
@@ -190,54 +188,58 @@ Page({
       return val;
   },
   //申请观察团
-  apply:function(){
+  apply: function () {
     var that = this;
     wx.showModal({
       title: '提示',
       content: '你确定要申请成为观察团吗',
       success: function (res) {
-    wx.showLoading({
-      title: '处理中',
-      mask: true,
-      success: function () {
-        //请求数据
-        wx.request({
-          url: app.globalData.https + '/x/Operate/GuanchaTuan.ashx',
-          data: {
-            method: 'Join_Santuan',
-            project_id: that.data.groupId,
-            memid:app.globalData.huiyuanInfo.userid,
-            type:that.data.groupType
-          },
-          header: {
-            'content-type': 'application/x-www-form-urlencoded'
-          },
-          success: function (res) {
-            wx.hideLoading()
-            if(res.data == "1"){
-              wx.showToast({
-                title: '申请观察团成功',
-                duration: 1500
+        if (res.confirm) {
+          wx.showLoading({
+            title: '处理中',
+            mask: true,
+            success: function () {
+              //请求数据
+              wx.request({
+                url: app.globalData.https + '/x/Operate/GuanchaTuan.ashx',
+                data: {
+                  method: 'Join_Santuan',
+                  project_id: that.data.groupId,
+                  memid: app.globalData.huiyuanInfo.userid,
+                  type: that.data.groupType
+                },
+                header: {
+                  'content-type': 'application/x-www-form-urlencoded'
+                },
+                success: function (res) {
+                  wx.hideLoading()
+                  if (res.data == "1") {
+                    wx.showToast({
+                      title: '申请观察团成功',
+                      duration: 1500
+                    })
+                    setTimeout(function () {
+                      wx.navigateBack()
+                    }, 500)
+                  }
+                  else
+                    wx.showModal({
+                      title: '提示',
+                      content: '申请观察团失败',
+                      showCancel: false
+                    })
+                },
+                fail: function (data) {
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
+                  })
+                }
               })
-              setTimeout(function () {
-                wx.navigateBack()
-              }, 2000)
             }
-            else
-              wx.showToast({
-                title: '申请观察团失败',
-                duration: 1500
-              })
-          },
-          fail: function (data) {
-            wx.showToast({
-              title: '数据请求失败',
-              duration: 1500
-            })
-          }
-        })
-      }
-    })
+          })
+        }
       }
     })
   }

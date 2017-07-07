@@ -254,19 +254,23 @@ Page({
                       title: '申请加入成功',
                       duration: 1500
                     })
-                    wx.navigateBack()
+                    setTimeout(function(){
+                      wx.navigateBack()
+                    },500)
                   }
                   else {
-                    wx.showToast({
-                      title: '申请加入失败',
-                      duration: 1500
+                    wx.showModal({
+                      title: '提示',
+                      content: '申请加入失败',
+                      showCancel: false
                     })
                   }
                 },
                 fail: function (res) {
-                  wx.showToast({
-                    title: '数据请求失败',
-                    duration: 1500
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
                   })
                 }
               })

@@ -8,11 +8,11 @@ Page({
   data: {
     urlPath: app.globalData.https + "/images/",
     //项目ID
-    projectId:null,
+    projectId: null,
     //团ID
-    groupId:null,
+    groupId: null,
     //团类别
-    groupType:null,
+    groupType: null,
     //评论
     comment: '',
     //图片列表
@@ -34,9 +34,9 @@ Page({
   onLoad: function (options) {
     var that = this
     that.setData({
-      projectId:options.project_id,
-      groupId:options.group_id,
-      groupType:options.group_type
+      projectId: options.project_id,
+      groupId: options.group_id,
+      groupType: options.group_type
     })
     wx.getSystemInfo({
       success: function (res) {
@@ -139,10 +139,10 @@ Page({
   uploadImage: function () {
     var that = this
     if (that.data.imgs.length > 9) {
-      wx.showToast({
-        title: '只能上传九张图片',
-        icon: 'success',
-        duration: 2000
+      wx.showModal({
+        title: '提示',
+        content: '只能上传九张图片',
+        showCancel: false
       })
       return;
     }
@@ -242,6 +242,11 @@ Page({
         title: '请输入评论内容',
         duration: 1500
       })
+      wx.showModal({
+        title: '提示',
+        content: '只能上传九张图片',
+        showCancel: false
+      })
       return;
     }
     var imgUrl = ""
@@ -251,50 +256,58 @@ Page({
       else
         imgUrl += "|" + that.data.imgs[i]
     }
-    wx.showLoading({
-      title: '加载中',
-      mask: true,
-      success: function () {
-        //请求数据
-        wx.request({
-          url: app.globalData.https + '/x/Operate/GuanchaTuan.ashx',
-          data: {
-            method: "Submit_Santuan",
-            project_id: that.data.projectId,
-            id: that.data.groupId,
-            memid: app.globalData.huiyuanInfo.userid,
-            type: that.data.groupType,
-            score: that.data.score,
-            descs: that.data.comment,
-            imgurl: imgUrl,
-            vedio: that.data.video
-          },
-          header: {
-            'content-type': 'application/json'
-          },
-          success: function (res) {
-            console.log("提交报告结果"+res.data)
-            wx.hideLoading()
-            if(res.data == "1")
-            {
-              wx.showToast({
-                title: '提交报告成功',
-                duration: 1500
+    wx.showModal({
+      title: '提示',
+      content: '你确定要发起邀请吗',
+      success: function (res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '加载中',
+            mask: true,
+            success: function () {
+              //请求数据
+              wx.request({
+                url: app.globalData.https + '/x/Operate/GuanchaTuan.ashx',
+                data: {
+                  method: "Submit_Santuan",
+                  project_id: that.data.projectId,
+                  id: that.data.groupId,
+                  memid: app.globalData.huiyuanInfo.userid,
+                  type: that.data.groupType,
+                  score: that.data.score,
+                  descs: that.data.comment,
+                  imgurl: imgUrl,
+                  vedio: that.data.video
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                success: function (res) {
+                  console.log("提交报告结果" + res.data)
+                  wx.hideLoading()
+                  if (res.data == "1") {
+                    wx.showToast({
+                      title: '提交报告成功',
+                      duration: 1500
+                    })
+                    setTimeout(function () {
+                      wx.navigateBack({
+
+                      })
+                    }, 500)
+                  }
+                  else {
+                    wx.showModal({
+                      title: '提示',
+                      content: '提交报告失败',
+                      showCancel: false
+                    })
+                  }
+                }
               })
-              setTimeout(function(){
-                wx.navigateBack({
-                  
-                })
-              },1500)
             }
-            else{
-              wx.showToast({
-                title: '提交报告失败',
-                duration: 1500
-              })
-            }
-          }
-        })
+          })
+        }
       }
     })
   }

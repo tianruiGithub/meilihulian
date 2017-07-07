@@ -108,14 +108,18 @@ Page({
             memid: that.data.userId,
             question: encodeURI(that.data.content)
           }),
-          success: function (res) {       
+          success: function (res) {   
+            wx.hideLoading()    
             if (res.data == "1") {
               wx.showToast({
                 title: '需求发布成功',
                 icon: 'success',
                 duration: 1500
               })
+              setTimeout(function(){
                 wx.navigateBack()
+              },500)
+               
             }
             else {
               wx.showToast({
@@ -124,7 +128,7 @@ Page({
                 duration: 1500
               })
             }
-            wx.hideLoading()
+            
           },
           fail:function(){
             wx.showToast({

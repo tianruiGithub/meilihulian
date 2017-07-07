@@ -130,19 +130,23 @@ Page({
                       title: '删除职位成功',
                       duration: 1500
                     })
-                    wx.navigateBack()
+                    setTimeout(function(){
+                      wx.navigateBack()
+                    },500)
                   }
                   else {
-                    wx.showToast({
-                      title: '删除职位失败',
-                      duration: 1500
+                    wx.showModal({
+                      title: '提示',
+                      content: '数据请求失败',
+                      showCancel: false
                     })
                   }
                 },
                 fail: function (res) {
-                  wx.showToast({
-                    title: '数据请求失败',
-                    duration: 1500
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
                   })
                 }
               })
@@ -217,9 +221,10 @@ Page({
             }
           },
           fail: function (res) {
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '数据加载失败',
+              showCancel: false
             })
           }
         })
@@ -263,9 +268,10 @@ Page({
       var ids = "";
       var box = that.data.plBox
       if (box.length == 0) {
-        wx.showToast({
-          title: '请先选择要拒绝的申请人',
-          duration: 1500
+        wx.showModal({
+          title: '提示',
+          content: '请先选择要拒绝的申请人',
+          showCancel: false
         })
         return;
       }
@@ -317,16 +323,18 @@ Page({
                       })
                     }
                     else {
-                      wx.showToast({
-                        title: '拒绝失败',
-                        duration: 1500
+                      wx.showModal({
+                        title: '提示',
+                        content: '拒绝失败',
+                        showCancel: false
                       })
                     }
                   },
                   fail: function (res) {
-                    wx.showToast({
-                      title: '数据请求失败',
-                      duration: 1500
+                    wx.showModal({
+                      title: '提示',
+                      content: '数据请求失败',
+                      showCancel: false
                     })
                   }
                 })

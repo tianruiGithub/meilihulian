@@ -168,9 +168,10 @@ Page({
   //first下一步
   firstNext: function () {
     if (this.data.selectedHangyeId == '' || this.data.selectedHangyeId == '1') {
-      wx.showToast({
-        title: '请选择所属行业',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请选择所属行业',
+        showCancel: false
       })
       return;
     }
@@ -189,9 +190,10 @@ Page({
   //second下一步
   secondNext: function () {
     if (this.data.name.length == 0) {
-      wx.showToast({
-        title: '请输入项目名称',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请输入项目名称',
+        showCancel: false
       })
       return;
     }
@@ -210,9 +212,10 @@ Page({
   //second下一步
   thirdNext: function () {
     if (this.data.img == "") {
-      wx.showToast({
-        title: '请选择项目封面',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请选择项目封面',
+        showCancel: false
       })
       return;
     }
@@ -232,9 +235,10 @@ Page({
   forthNext: function () {
     console.log(this.data.introduce)
     if (this.data.introduce.length == 0) {
-      wx.showToast({
-        title: '请输入项目介绍',
-        duration: 1500
+      wx.showModal({
+        title: '提示',
+        content: '请输入项目介绍',
+        showCancel: false
       })
       return;
     }
@@ -282,9 +286,10 @@ Page({
             })
           },
           fail: function (res) {
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '数据加载失败',
+              showCancel: false
             })
           }
         })
@@ -301,9 +306,10 @@ Page({
         if (res.confirm) {
           var imgstr = ""
           if (that.data.imgs.length == 0) {
-            wx.showToast({
-              title: '请添加资质图片',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '请添加资质图片',
+              showCancel: false
             })
             return;
           }
@@ -341,20 +347,21 @@ Page({
                     })
                     setTimeout(function () {
                       wx.navigateBack()
-                    }, 2000)
+                    }, 500)
 
                   } else {
-                    wx.showToast({
-                      title: '发起新项目失败',
-                      duration: 1500
+                    wx.showModal({
+                      title: '提示',
+                      content: '发起新项目失败',
+                      showCancel: false
                     })
                   }
-
                 },
                 fail: function (res) {
-                  wx.showToast({
-                    title: '数据加载失败',
-                    duration: 1500
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据加载失败',
+                    showCancel: false
                   })
                 }
               })

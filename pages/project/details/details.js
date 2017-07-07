@@ -270,9 +270,10 @@ Page({
         WxParse.wxParse('xm_introduce', 'html', decodeURIComponent(encode_info.descs), that)
       },
       fail: function (data) {
-        wx.showToast({
-          title: '数据加载失败',
-          duration: 1500
+        wx.showModal({
+          title: '提示',
+          content: '请求数据失败',
+          showCancel: false
         })
       }
     })
@@ -344,23 +345,26 @@ Page({
                 duration: 1500
               })
             } else if (res.data == "repeat") {
-              wx.showToast({
-                title: '该票已投过',
-                duration: 1500
+              wx.showModal({
+                title: '提示',
+                content: '该票已投过',
+                showCancel: false
               })
             }
             else {
-              wx.showToast({
-                title: '该票失败',
-                duration: 1500
+              wx.showModal({
+                title: '提示',
+                content: '投票失败',
+                showCancel: false
               })
             }
             that.loadXmInfo()
           },
           fail: function (data) {
-            wx.showToast({
-              title: '数据请求失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '数据请求失败',
+              showCancel: false
             })
           }
         })
