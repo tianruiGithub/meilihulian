@@ -98,15 +98,16 @@
 <view class="content1">
   <image bindtap="goToHome" class="user-head" src="{{xm_csr_image}}"></image>
   <view class="user-info">
-    <text class="user-name">{{xm_csr_name}}</text>
-    <text class="user-introduce">{{xm_csr_shuo}}</text>
+    <view class="user-name">{{xm_csr_name}}</view>
+    <view class="user-introduce">{{xm_csr_shuo}}</view>
   </view>
 </view>
 <view class="title">
   <text class="title-name">项目介绍</text>
   <text bindtap="goToXgzz" class="title-right">相关资质</text>
+  <view class="both"></view>
 </view>
-<view class="content2" style="width:{{winWidth}}px">
+<view class="content2" >
   <!--<scroll-view wx:if="{{isHidden == false}}" scroll-x="true" style="height:200rpx;display:inline-block;white-space: nowrap;">
     <block wx:for="{{xm_pics}}" wx:key="{{xm_pics}}">
       <image bindtap="preview" data-index="{{index}}" mode="aspectFill" style="width:120px;height:100px;margin:5px" src="{{item.pic}}"></image>
