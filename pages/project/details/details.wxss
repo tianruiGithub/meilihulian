@@ -7,7 +7,7 @@ page {
 
 .top_bg {
   width: 100%;
-  height: 399rpx;
+  height:360rpx;
 }
 
 .top {
@@ -170,9 +170,7 @@ page {
 }
 
 .middle-box {
-  height: 140rpx;
   margin: 0rpx 16rpx;
-  padding: 30rpx 0;
   border-top: 1px solid #f0f0f0;
   border-left: 0px solid #f0f0f0;
   border-right: 0px solid #f0f0f0;
@@ -184,8 +182,7 @@ page {
 }
 
 .middle-box-item, .bottom-box-item {
-  margin-top: 30rpx;
-  height: 80rpx;
+  padding: 30rpx 0;
   flex: 1;
 }
 
@@ -208,19 +205,15 @@ page {
   font-size: 10pt;
   color: #888;
   text-align: center;
-  padding-bottom: 30rpx;
 }
 
 .bottom {
   width: 100%;
-  height: 196rpx;
-  margin-top: -11rpx;
+  margin-top: -13rpx;
 }
 
 .bottom-box {
-  height: 140rpx;
   margin: 0rpx 16rpx;
-  padding: 30rpx 0;
   border-left: 0px solid #f0f0f0;
   border-right: 0px solid #f0f0f0;
   border-bottom: 0px solid #f0f0f0;
