@@ -1,7 +1,7 @@
 /* xiangmubao.wxss */
 
 page {
-  background: #f7f7f7;
+  background: #efeff4;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -10,22 +10,22 @@ page {
 
 .top {
   width: 100%;
-  background-color: #f7f7f7;
+  background-color: #efeff4;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  border-bottom:1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .top-left, .top-right {
   width: 50%;
   display: flex;
   justify-content: center;
-   color: #353535;
+  color: #353535;
 }
 
 .top-box {
- color: #888;
+  color: #888;
 }
 
 .top-box-name {
@@ -40,10 +40,11 @@ page {
 .top-active {
   color: #09bb07;
 }
- .top-box-bar {
-   width:100%;
-   height:4px;
- }
+
+.top-box-bar {
+  width: 100%;
+  height: 4px;
+}
 
 .top-active .top-box-bar {
   background-color: #09bb07;
@@ -88,26 +89,26 @@ page {
 }
 
 .bb-xm-image {
-  width: 136rpx;
-  height: 128rpx;
+  width: 140rpx;
+  height: 140rpx;
 }
 
 .bb-xm-info {
-  width: auto;
   height: 128rpx;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left:30rpx;
   flex: 1;
 }
 
 .bb-xm-name {
   float: left;
-  width: 100%;
+  margin: 0 30rpx;
+  max-width: 150px;
   height: 68rpx;
   font-size: 11pt;
   color: #353535;
+  overflow: hidden;
 }
 
 .bb-xm-time {
@@ -117,23 +118,22 @@ page {
   line-height: 50rpx;
   font-size: 9pt;
   color: #888;
+  margin: 0 30rpx;
 }
-
 
 .bb-xm-yl {
   width: 140rpx;
-  height:60rpx;
-  background-color:#fff;
+  height: 60rpx;
+  background-color: #fff;
   font-size: 10pt;
   padding: 0 30rpx;
   line-height: 60rpx;
   color: #09bb07;
   border-radius: 6rpx;
   border: 1rpx solid #09bb07;
-  margin-top: 30rpx;
-  margin-right: 30rpx;
-  z-index:99999;
-  position:relative;
+  margin-top: 38rpx;
+  z-index: 99999;
+  position: relative;
 }
 
 .bb-xm-arrows {
@@ -173,7 +173,7 @@ page {
   width: auto;
   height: 80rpx;
   flex: 1;
-  line-height:80rpx;
+  line-height: 80rpx;
   color: #888;
   font-size: 10pt;
   text-align: right;
@@ -186,7 +186,7 @@ page {
 }
 
 .bc-edit {
-  width:92%;
+  width: 92%;
   position: absolute;
   bottom: 20rpx;
   left: 4%;
@@ -196,36 +196,40 @@ page {
   font-size: 11pt;
   letter-spacing: 2rpx;
   border-radius: 10rpx;
-  background-color: rgba(9 ,187, 7 ,0.6);
-
+  background-color: rgba(9, 187, 7, 0.6);
 }
 
 .click {
   color: #09bb07;
   border-bottom: 14rpx solid #09bb07;
 }
-button{
-  border-radius:0;
+
+button {
+  border-radius: 0;
 }
+
 button::after {
   border: 0px solid rgba(0, 0, 0, 0.2);
 }
+
 button[type="primary"] {
-color:#FFFFFF;
-background-color:rgba(9,187,7,0.6);
+  color: #fff;
+  background-color: rgba(9, 187, 7, 0.6);
 }
-.right{
+
+.right {
   margin-right: 30rpx;
 }
-.ma{
-  
+
+.ma {
   padding: 0rpx 30rpx;
   display: flex;
   flex: 1;
 }
-.Icon{
+
+.Icon {
   width: 20rpx;
   height: 60rpx;
-  margin-top:30rpx;
+  margin-top: 30rpx;
   margin-right: 16rpx;
 }
