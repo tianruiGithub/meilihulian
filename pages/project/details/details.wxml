@@ -1,65 +1,68 @@
 <!--xiangqing.wxml-->
-<import src="../../../wxParse/wxParse.wxml" />
-<image class="top_bg" src="{{urlPath}}xm_xq_bg.png"></image>
-<view class="top">
-  <image class="xm-image" mode="aspectFill" src="{{xm_image}}"></image>
-  <view class="xm-info">
-    <text class="xm-info-name">{{xm_name}}</text>
-    <text class="xm-info-other">{{xm_city}} {{xm_time}}</text>
+<view class="box">
+  <import src="../../../wxParse/wxParse.wxml" />
+  <image class="top_bg" src="{{urlPath}}xm_xq_bg.png"></image>
+  <view class="top">
+    <image class="xm-image" mode="aspectFill" src="{{xm_image}}"></image>
+    <view class="xm-info">
+      <text class="xm-info-name">{{xm_name}}</text>
+      <text class="xm-info-other">{{xm_city}} {{xm_time}}</text>
+    </view>
+
+    <view class="xm-piao">
+      <view wx:if="{{xm_flag == '1'}}" class="xm-piao-number">
+        {{xm_piao}}票
+        <image class="xm-piao-flag1" src="{{urlPath}}up2.png"></image>
+      </view>
+      <view wx:if="{{xm_flag == '2'}}" class="xm-piao-number">
+        {{xm_piao}}票
+        <image class="xm-piao-flag2" src="{{urlPath}}down.png"></image>
+      </view>
+      <view wx:if="{{xm_flag == '3'}}" class="xm-piao-number">
+        {{xm_piao}}票
+        <image class="xm-piao-flag3" src="{{urlPath}}flat.png"></image>
+      </view>
+      <view class="xm-piao-button">
+        <view bindtap="actionSheetTap" wx:if="{{isvoted=='0'}}" class="xm-piao-change1">
+          <text style="margin-left:1px;">待投</text>
+        </view>
+        <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '1'}}" class="xm-piao-change1">
+          <text style="margin-left:1px;">已荐</text>
+        </view>
+        <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '2'}}" class="xm-piao-change2">
+          <text style="margin-left:1px;">已否</text>
+        </view>
+        <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '3'}}" class="xm-piao-change3">
+          <text style="margin-left:1px;">已弃</text>
+        </view>
+      </view>
+    </view>
   </view>
-  <view class="xm-piao">
-    <view wx:if="{{xm_flag == '1'}}" class="xm-piao-number">
-      {{xm_piao}}票
-      <image class="xm-piao-flag1" src="{{urlPath}}up2.png"></image>
-    </view>
-    <view wx:if="{{xm_flag == '2'}}" class="xm-piao-number">
-      {{xm_piao}}票
-      <image class="xm-piao-flag2" src="{{urlPath}}down.png"></image>
-    </view>
-    <view wx:if="{{xm_flag == '3'}}" class="xm-piao-number">
-      {{xm_piao}}票
-      <image class="xm-piao-flag3" src="{{urlPath}}flat.png"></image>
-    </view>
-    <view class="xm-piao-button">
-      <view bindtap="actionSheetTap" wx:if="{{isvoted=='0'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">待投</text>
+  <view class="middle">
+    <view class="middle-box">
+      <view bindtap="goToGuanchatuan" class="middle-box-item">
+        <view class="middle-item-top">
+          观察团
+        </view>
+        <view class="middle-item-bottom">
+          {{guanchatuan_state_txt}}
+        </view>
       </view>
-      <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '1'}}" class="xm-piao-change1">
-        <text style="margin-left:1px;">已荐</text>
+      <view bindtap="goToTiyantuan" class="middle-box-item">
+        <view class="middle-item-top">
+          体验团
+        </view>
+        <view class="middle-item-bottom">
+          {{tiyantuan_state_txt}}
+        </view>
       </view>
-      <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '2'}}" class="xm-piao-change2">
-        <text style="margin-left:1px;">已否</text>
-      </view>
-      <view bindtap="actionSheetTap" wx:if="{{isvoted=='1' && votes_type == '3'}}" class="xm-piao-change3">
-        <text style="margin-left:1px;">已弃</text>
-      </view>
-    </view>
-  </view>
-</view>
-<view class="middle">
-  <view class="middle-box">
-    <view bindtap="goToGuanchatuan" class="middle-box-item">
-      <view class="middle-item-top">
-        观察团
-      </view>
-      <view class="middle-item-bottom">
-        {{guanchatuan_state_txt}}
-      </view>
-    </view>
-    <view bindtap="goToTiyantuan" class="middle-box-item">
-      <view class="middle-item-top">
-        体验团
-      </view>
-      <view class="middle-item-bottom">
-        {{tiyantuan_state_txt}}
-      </view>
-    </view>
-    <view bindtap="goToZhuanjiatuan" class="middle-box-item">
-      <view class="middle-item-top">
-        专家团
-      </view>
-      <view class="middle-item-bottom">
-        {{zhuanjiatuan_state_txt}}
+      <view bindtap="goToZhuanjiatuan" class="middle-box-item">
+        <view class="middle-item-top">
+          专家团
+        </view>
+        <view class="middle-item-bottom">
+          {{zhuanjiatuan_state_txt}}
+        </view>
       </view>
     </view>
   </view>
@@ -107,7 +110,7 @@
   <text bindtap="goToXgzz" class="title-right">相关资质</text>
   <view class="both"></view>
 </view>
-<view class="content2" >
+<view class="content2">
   <!--<scroll-view wx:if="{{isHidden == false}}" scroll-x="true" style="height:200rpx;display:inline-block;white-space: nowrap;">
     <block wx:for="{{xm_pics}}" wx:key="{{xm_pics}}">
       <image bindtap="preview" data-index="{{index}}" mode="aspectFill" style="width:120px;height:100px;margin:5px" src="{{item.pic}}"></image>
@@ -125,7 +128,7 @@
   <view class="introduce">
     {{xm_meilishuo}}
   </view>
-  
+
 </view>
 <view style="float:left;width:100%;height:180rpx;"></view>
 <view wx:if="{{xm_userid != userId}}" class="cy-box">
