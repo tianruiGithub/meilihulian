@@ -42,10 +42,10 @@
       <view class="date">
         <view class="dateText">{{item.createtime}}</view>
         <image class="iconOne" src="{{urlPath}}pinglun.png" bindtap="pinglun" data-type="pinglun" data-number="{{index}}" data-id="{{item.id}}" data-toid="0" data-toname="" data-type="pinglun"></image>
-        <image class="iconOne" src="{{item.isdianzan==0?'{{urlPath}}down01.png':'{{urlPath}}downC01.png'}}" data-type="{{item.isdianzan}}" data-index='{{index}}' data-id="{{item.id}}" bindtap="dianzan"></image>
+        <image class="iconOne" src="{{item.isdianzan==0?urlPath+'down01.png':urlPath+'downC01.png'}}" data-type="{{item.isdianzan}}" data-index='{{index}}' data-id="{{item.id}}" bindtap="dianzan"></image>
       </view>
       <view class="click" data-number="{{index}}" data-id="{{item.id}}" data-zhankai="{{item.a}}" data-memid="{{item.memid}}" style="{{idxc>1?'display:none':''}}" bindtap="click" style="{{item.flag==0?'display:none':'display:block'}}">{{item.a=='0' ? '点击展开评论':'点击隐藏评论'}}
-        <image src="{{item.a==0?'{{urlPath}}xiajian1.png':'{{urlPath}}xiajian2.png'}}"></image>
+        <image src="{{item.a==0?urlPath+'xiajian1.png':urlPath+'xiajian2.png'}}"></image>
       </view>
       <view class="classname" wx:for="{{item.comments_list}}" wx:for-index="idxc" wx:for-item="itec" bindtap="pinglun" data-type="huifu" data-number="{{index}}" data-id="{{item.id}}" data-toid="{{itec.memid}}" data-toname="{{itec.memname}}" style="{{idxc>1?item.a==0?'display:none':'display:block':'display:block'}}">
         <view class="require">{{itec.memname}}{{itec.p_memname==""?'':' 回复 '+itec.p_memname}}</view>
@@ -56,6 +56,35 @@
     </view>
   </view>
 </view>
+
+<view class="btn">
+  <button type="primary" bindtap="shenqing"> 立即申请</button>
+</view>
+
+
+<!--弹出框-->
+<modal title="确认信息" hidden="{{queren}}" confirm-text="确认" cancel-text="取消" bindconfirm="xxcon" bindcancel="xxcan">
+
+  <view class="inputviewx">
+    <view class="ivf">收货人：</view>
+    <input placeholder="{{name==''?'请输入收货人':name}}" class="inputx" bindinput="inputn" bindblur="inputnb" />
+  </view>
+  <view class="inputviewx">
+    <view class="ivf">收获地址:</view>
+    <input placeholder="{{address==''?'请输入收货地址':address}}" class="inputx" bindinput="inputa" bindblur="inputab" /> </view>
+  <view class="inputviewx">
+    <view class="ivf">收获电话：</view>
+    <input placeholder="{{tel==''?'请输入收货电话':tel}}" class="inputx" bindinput="inputt" bindblur="inputtb" />
+  </view>
+</modal>
+
+
+<modal title="申请理由" hidden="{{liyou}}" confirm-text="确认" cancel-text="取消" bindconfirm="lycon" bindcancel="lycan">
+
+  <textarea class="textarea" maxlength="-1" bindinput="textarea" bindblur="textareab" />
+</modal>
+<!--弹出框-->
+
 <!--输入框-->
 <view class="inputview" style="display:{{display}}">
   <input placeholder="{{placeholder}}" placeholder-style="font-size:9pt;margin-left:10rpx;" value="{{value}}" class="input" focus="{{focus}}" bindconfirm="tianjia" bindblur="shouqi" bindinput="input" confirm-hold="{{hold}}" />

@@ -106,6 +106,8 @@ Page({
     shi: [],
     disabled: 0,
     urlPath: app.globalData.https + "/images/",
+    tel: "",
+    cpeople: "",
   },
 
   /**
@@ -198,14 +200,15 @@ Page({
    */
   cancel: function () {
     wx.navigateBack({
-      
+
     })
   },
   firstnext: function () {
     var that = this
     if (that.data.type == 0) {
-      wx.showToast({
-        title: '请选择活动类型',
+      wx.showModal({
+        title: '操作失败',
+        content: '请选择活动类型',
       })
     } else {
       that.setData({
@@ -225,9 +228,9 @@ Page({
   secondnext: function () {
     var that = this
     if (that.data.pic == "") {
-      wx.showToast({
-        title: '请选择活动封面',
-        icon: 'success'
+      wx.showModal({
+        title: '操作失败',
+        content: '请选择活动封面',
       })
     } else {
       that.setData({
@@ -248,9 +251,9 @@ Page({
   thirdnext: function () {
     var that = this
     if (that.data.name == '') {
-      wx.showToast({
-        title: '请输入活动名称',
-        icon: "loading"
+      wx.showModal({
+        title: '操作失败',
+        content: '请输入活动名称',
       })
     } else {
       that.setData({
@@ -272,8 +275,9 @@ Page({
     var stime = that.data.sdata + that.data.stime
     var etime = that.data.edata + that.data.etime
     if (stime >= etime) {
-      wx.showToast({
-        title: '请输入正确的时间',
+      wx.showModal({
+        title: '操作失败',
+        content: '请输入正确的时间',
       })
     } else {
       that.setData({
@@ -312,10 +316,10 @@ Page({
   },
   confirm: function () {
     var that = this
-    if (that.data.people == "" || that.data.address == "" || that.data.city == "") {
-      wx.showToast({
-        title: '请输入完成信息',
-        icon: "loading"
+    if (that.data.people == "" || that.data.address == "" || that.data.city == "" || that.data.cpeople == "" || that.data.tel == "") {
+      wx.showModal({
+        title: '操作失败',
+        content: '请输入完成信息',
       })
     } else {
       console.log("活动人数=" + that.data.people)
@@ -380,6 +384,29 @@ Page({
     })
   },
 
+
+  inputr: function (e) {
+    this.setData({
+      cpeople: e.detail.value
+    })
+
+  },
+  inputrb: function (e) {
+    this.setData({
+      cpeople: e.detail.value
+    })
+  },
+  inputt: function (e) {
+    this.setData({
+      tel: e.detail.value
+    })
+
+  },
+  inputtb: function (e) {
+    this.setData({
+      tel: e.detail.value
+    })
+  },
   /**
    * 修改时间
    */
@@ -425,25 +452,25 @@ Page({
           success: function (uploadRes) {
             console.log("上传图片" + uploadRes.data)
             if (uploadRes.data == "0") {
-              wx.showToast({
+              wx.showModal({
                 title: '上传出错',
-                icon: 'loading'
+                content: '',
               })
             }
             else if (uploadRes.data == "-2") {
-              wx.showToast({
-                title: '图片格式错误',
-                icon: 'loading'
+              wx.showModal({
+                title: '上传出错',
+                content: '图片格式错误',
               })
             } else if (uploadRes.data == "-3") {
-              wx.showToast({
-                title: '图片过大',
-                icon: 'loading'
+              wx.showModal({
+                title: '上传出错',
+                content: '图片过大',
               })
             } else if (uploadRes.data == "-4") {
-              wx.showToast({
-                title: '文件为空',
-                icon: 'loading'
+              wx.showModal({
+                title: '上传出错',
+                content: '文件为空',
               })
             } else {
               wx.showToast({
@@ -457,6 +484,10 @@ Page({
           },
           fail: function (res) {
             console.log("上传图片失败" + JSON.stringify(res))
+            wx.showModal({
+              title: '上传出错',
+              content: '',
+            })
           }
         })
       }
@@ -575,7 +606,9 @@ Page({
         ischarge: that.data.ischarge,
         chargemoney: that.data.money,
         type: that.data.type,
-        pic: that.data.pic
+        pic: that.data.pic,
+        contact_name: that.data.cpeople,
+        contact_tel: that.data.tel
       },
       success: function (res) {
         if (res.data == 1) {
@@ -583,15 +616,15 @@ Page({
             title: '操作成功',
             icon: "success"
           })
-          setTimeout(function(){
+          setTimeout(function () {
             wx.navigateBack({
-              
+
             })
-          },2000)
+          }, 2000)
         } else {
-          wx.showToast({
+          wx.showModal({
             title: '操作失败',
-            icon: "loading"
+            content: '',
           })
         }
       },

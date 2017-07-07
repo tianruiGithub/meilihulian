@@ -250,3 +250,30 @@ page{
   overflow: hidden;
   margin-bottom: 16rpx;
 }
+.btn{
+  position:fixed;
+  bottom: 0rpx;
+  left: 30rpx;
+  right: 30rpx;
+  letter-spacing: 4rpx;
+  
+
+}
+.inputx{
+  display: inline-block
+}
+.inputviewx{
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}
+.ivf{
+  width:30%;
+}
+.textarea{
+  width:90%;
+  margin:auto;
+  border:1px solid #ccc;
+  padding:20rpx
+}

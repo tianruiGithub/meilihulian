@@ -132,7 +132,9 @@ Page({
     chooseHaike: '',
     jiabin: 0,
     winHeight: '',
-    listj: []
+    listj: [],
+    tel: "",
+    cpeople: "",
   },
 
   /**
@@ -428,7 +430,10 @@ Page({
    *  点击跳转
    */
   jumpdetail: function (e) {
-    console.log(e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../../../pages/discover/activity/activityDetails/activityDetails?activity_id=' + e.currentTarget.dataset.id,
+    })
+
   },
 
   /**
@@ -771,6 +776,8 @@ Page({
     var address = e.currentTarget.dataset.address
     var province = e.currentTarget.dataset.province
     var city = e.currentTarget.dataset.city
+    var cpeople = e.currentTarget.dataset.cpeople
+    var tel = e.currentTarget.dataset.tel
     var that = this
     that.setData({
       main: 0,
@@ -780,7 +787,9 @@ Page({
       people: people,
       address1: address,
       province: province,
-      city: city
+      city: city,
+      cpeople:cpeople,
+      tel:tel
     })
     var initsheng = []
     for (var i = 0; i < pc.length; i++) {
@@ -804,48 +813,62 @@ Page({
   },
   acon: function () {
     var that = this
-    that.setData({
-      main: 1,
-      address: 0
-    })
-    wx.request({
-      url: app.globalData.https + '/x/Operate/Activity.ashx',
-      data: ({
-        method: "Update_Activity",
-        activity_id: that.data.hdid,
-        type: 4,
-        province: that.data.province,
-        city: that.data.city,
-        address: that.data.address1,
-        people: that.data.people
-      }),
-      success: function (res) {
-        if (res.data == 1) {
-          wx.showToast({
-            title: '修改成功',
-            icon: "success"
-          })
-          var temp = []
-          temp = that.data.listw
-          temp[that.data.index].province = that.data.province
-          temp[that.data.index].city = that.data.city
-          temp[that.data.index].address = that.data.address1
-          temp[that.data.index].people = that.data.people
+ 
+    if (that.data.people == "" || that.data.address == "" || that.data.cpeople == "" || that.data.tel == "") {
+      wx.showModal({
+        title: '操作失败',
+        content: '请输入完成信息',
+      })
+    } else {
+      wx.request({
+        url: app.globalData.https + '/x/Operate/Activity.ashx',
+        data: ({
+          method: "Update_Activity",
+          activity_id: that.data.hdid,
+          type: 4,
+          province: that.data.province,
+          city: that.data.city,
+          address: that.data.address1,
+          people: that.data.people,
+          contact_name: that.data.cpeople,
+          contact_tel: that.data.tel
+        }),
+        success: function (res) {
           that.setData({
             main: 1,
-            shijian: 0,
-            listw: temp
+            address: 0
           })
-        } else {
-          wx.showToast({
-            title: '修改失败',
-            icon: "loading"
-          })
+          if (res.data == 1) {
+            wx.showToast({
+              title: '修改成功',
+              icon: "success"
+            })
+            var temp = []
+            temp = that.data.listw
+            temp[that.data.index].province = that.data.province
+            temp[that.data.index].city = that.data.city
+            temp[that.data.index].address = that.data.address1
+            temp[that.data.index].people = that.data.people
+            temp[that.data.index].contact_name = that.data.cpeople
+            temp[that.data.index].contact_tel = that.data.tel
+            that.setData({
+              main: 1,
+              shijian: 0,
+              listw: temp
+            })
+          } else {
+            wx.showToast({
+              title: '修改失败',
+              icon: "loading"
+            })
+          }
+        },
+        fail: function () {
         }
-      },
-      fail: function () {
-      }
-    })
+      })
+    }
+
+
     console.log(that.data.city)
   },
   inputa: function (e) {
@@ -858,6 +881,29 @@ Page({
     var that = this
     that.setData({
       people: e.detail.value
+    })
+  },
+
+  inputr: function (e) {
+    this.setData({
+      cpeople: e.detail.value
+    })
+
+  },
+  inputrb: function (e) {
+    this.setData({
+      cpeople: e.detail.value
+    })
+  },
+  inputt: function (e) {
+    this.setData({
+      tel: e.detail.value
+    })
+
+  },
+  inputtb: function (e) {
+    this.setData({
+      tel: e.detail.value
     })
   },
   /**
@@ -1265,7 +1311,7 @@ Page({
       }
     })
   },
-  goToPublish:function(){
+  goToPublish: function () {
     wx.navigateTo({
       url: '../../../pages/discover/activity/activityPublish/activityPublish',
     })

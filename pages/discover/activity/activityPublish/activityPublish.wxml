@@ -111,6 +111,16 @@
     <input class="inputs" type="number" placeholder="{{people==''?'请输入活动人数':people}}" bindinput="inputp" bindblur="inputpb"/>
   </view>
 
+  <view class="text">请输入联系人信息</view>
+  <view class="list">
+    <view class="names">联系人:</view>
+    <input class="inputs"  placeholder="{{cpeople==''?'请输入联系人':cpeople}}" bindinput="inputr" bindblur="inputrb"/>
+  </view>
+    <view class="list">
+    <view class="names">联系电话:</view>
+    <input class="inputs" type="number" placeholder="{{tel==''?'请输入联系电话':tel}}" bindinput="inputt" bindblur="inputtb"/>
+  </view>
+
   <!--按钮-->
   <view class="btn">
     <view class="btnLeft" bindtap="sixthcancel">上一步</view>
