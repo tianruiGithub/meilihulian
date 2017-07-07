@@ -298,12 +298,12 @@ page {
 }
 
 .content3 {
-  float: left;
+ 
   min-height: 100rpx;
   background-color: white;
   color: #888;
-  font-size: 10pt;
-  padding-top: 20rpx;
+  font-size: 9pt;
+  padding-top: 16rpx;
 }
 
 .xm-pic-box {
@@ -323,6 +323,7 @@ page {
   color: #888;
   line-height: 1.4;
   letter-spacing: 1.2rpx;
+  word-wrap:break-word;
 }
 
 .cy-box {
@@ -352,4 +353,10 @@ page {
 }
 .both{
   clear: both;
+}
+.wxParse-p{
+display: block;
+}
+.wxParse-img{
+display: block;
 }
