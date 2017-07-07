@@ -1269,6 +1269,11 @@ Page({
     wx.navigateTo({
       url: '../../../pages/discover/activity/activityPublish/activityPublish',
     })
+  },
+  goToDetails: function (e) {
+    wx.navigateTo({
+      url: '../../../pages/discover/activity/activityDetails/activityDetails?id='+e.currentTarget.dataset.id
+    })
   }
 })
 Date.prototype.Format = function (fmt) { //author: meizz 

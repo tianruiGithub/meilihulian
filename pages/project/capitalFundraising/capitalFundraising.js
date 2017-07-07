@@ -125,7 +125,8 @@ Page({
       })
       return;
     }
-    if(this.data.money > 100000000){
+
+    if (this.data.money > 100000000) {
       wx.showToast({
         title: '目标金额不能超过1亿元',
         duration: 1500
@@ -144,51 +145,63 @@ Page({
       title: '提示',
       content: '你确定要发起募资吗',
       success: function (res) {
-        wx.showLoading({
-          title: '发起中',
-          mask: true,
-          success: function () {
-            //请求数据
-            wx.request({
-              url: app.globalData.https + '/x/Operate/Zihe.ashx',
-              data: {
-                method: "Add_Zihe",
-                project_id: that.data.projectId,
-                targetmoney: that.data.money,
-                mostStock: that.data.rate
-              },
-              header: {
-                'content-type': 'application/json'
-              },
-              success: function (res) {
-                wx.hideLoading()
-                console.log("获取发起募资结果信息：" + JSON.stringify(res.data))
-                if (res.data == "1") {
-                  wx.showToast({
-                    title: '发起募资成功,请等待审核',
-                    duration: 1500
+        if (res.confirm) {
+          wx.showLoading({
+            title: '发起中',
+            mask: true,
+            success: function () {
+              //请求数据
+              wx.request({
+                url: app.globalData.https + '/x/Operate/Zihe.ashx',
+                data: {
+                  method: "Add_Zihe",
+                  project_id: that.data.projectId,
+                  targetmoney: that.data.money,
+                  mostStock: that.data.rate
+                },
+                header: {
+                  'content-type': 'application/json'
+                },
+                success: function (res) {
+                  wx.hideLoading()
+                  console.log("获取发起募资结果信息：" + JSON.stringify(res.data))
+                  if (res.data == "1") {
+                    wx.showToast({
+                      title: '发起募资成功,请等待审核',
+                      duration: 1500
+                    })
+                    setTimeout(function () {
+                      wx.navigateBack()
+                    }, 500)
+                  } else if (res.data == "-1") {
+                    wx.showModal({
+                      title: '提示',
+                      content: '您之前发起的募资还没有审核通过，请耐心等待',
+                      showCancel: false
+                    })
+                    return;
+                  }
+                  else {
+                    wx.showModal({
+                      title: '提示',
+                      content: '发起募资失败',
+                      showCancel: false
+                    })
+                    return;
+                  }
+                },
+                fail: function (res) {
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
                   })
-                  setTimeout(function(){
-                    wx.navigateBack()
-                  },500)
-           
+                  return;
                 }
-                else {
-                  wx.showToast({
-                    title: '发起募资失败',
-                    duration: 1500
-                  })
-                }
-              },
-              fail: function (res) {
-                wx.showToast({
-                  title: '数据请求失败',
-                  duration: 1500
-                })
-              }
-            })
-          }
-        })
+              })
+            }
+          })
+        }
       }
     })
   }

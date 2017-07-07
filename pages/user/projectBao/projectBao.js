@@ -50,7 +50,8 @@ Page({
     zhuanjiatuan_state_txt: '',
     zhuanjiatuan_isReport: '',
     isNew: false,
-    xm_userid: ''
+    xm_userid: '',
+    iscan: ''
   },
 
   /**
@@ -348,6 +349,7 @@ Page({
               guanchatuan_id: info.guanchatuan_id,
               tiyantuan_id: info.tiyantuan_id,
               zhuanjiatuan_id: info.zhuanjiatuan_id,
+              iscan: info.iscan
             })
             if (info.guanchatuan_state == "1") {
               that.setData({
@@ -468,7 +470,7 @@ Page({
       })
     }
     else if (that.data.guanchatuan_state == "4" || that.data.guanchatuan_state == "5") {
-      if (app.globalData.huiyuanInfo.userid != that.data.xm_userid && that.data.guanchatuan_isReport == '0') {
+      if (app.globalData.huiyuanInfo.userid != that.data.xm_userid && that.data.guanchatuan_isReport == '0' && that.data.iscan=='1') {
         wx.navigateTo({
           url: '../../../pages/project/reportSubmit/reportSubmit?project_id=' + that.data.id + "&group_id=" + that.data.guanchatuan_id + "&group_type=1"
         })

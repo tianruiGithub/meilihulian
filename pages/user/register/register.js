@@ -1,4 +1,5 @@
 // register.js
+var WxParse = require('../../../wxParse/wxParse.js');
 var app = getApp()
 var timer = null
 Page({
@@ -28,7 +29,7 @@ Page({
     xueli_items:['本科以下','本科','研究生','博士','博士以上'],
     jd1:'backBlue',
     jd2:'backGrey',
-    jd3:'true',
+    jd3:'false',
     first:'block',
     second:'none',
     third:'none',
@@ -49,7 +50,11 @@ Page({
     cityData: [],
     province: '',
     newProvince:'',
-    newCity:'请选择所在省市'
+    newCity:'请选择所在省市',
+    fw:'',
+    ys:'',
+    fwModalHidden:true,
+    ysModalHidden: true
   },
 
   /**
@@ -57,6 +62,27 @@ Page({
    */
   onLoad: function (options) {
     this.pcInit()
+    var that = this
+    wx.request({
+      url: app.globalData.https + '/x/Operate/Home.ashx',
+      data: {
+        method: "Get_Tiaokuan"
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res) {
+         console.log(res.data)
+         WxParse.wxParse('fw', 'html', decodeURIComponent (res.data.fuwutiaokuan), that)
+         WxParse.wxParse('ys', 'html', decodeURIComponent(res.data.yinsitiaokuan), that)
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '数据请求失败',
+          duration: 1500
+        })
+      }
+    })
   },
 
   /**
@@ -106,6 +132,30 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+  openFw:function(){
+    var that = this
+    that.setData({
+      fwModalHidden:false
+    })
+  },
+  fwModalBindConfirm:function(){
+    var that = this
+    that.setData({
+      fwModalHidden: true
+    })
+  },
+  openYs:function(){
+     var that = this
+     that.setData({
+       ysModalHidden:false
+     })
+  },
+  ysModalBindConfirm: function () {
+    var that = this
+    that.setData({
+      ysModalHidden: true
+    })
   },
   recordName: function (e) {
     this.setData({
@@ -370,8 +420,7 @@ Page({
                       third: 'block'
                     })
                     setTimeout(function(){
-                      wx.navigateBack({
-                        
+                      wx.navigateBack({ 
                       })
                     },3000)
                   }

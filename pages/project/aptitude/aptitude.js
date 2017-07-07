@@ -95,6 +95,13 @@ Page({
         that.setData({
           pics: res.data.pic_info
         })
+      },
+      fail:function(){
+        wx.showModal({
+          title: '提示',
+          content: '请求数据失败',
+          showCancel:false
+        })
       }
     });
   },

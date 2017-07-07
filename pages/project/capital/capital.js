@@ -134,12 +134,12 @@ Page({
           jxzList: res.data.data[0].jinxingzhong_info,
           yjsList: res.data.data[1].yijieshu_info,
         })
-
       },
       fail: function (res) {
-        wx.showToast({
-          title: '数据加载失败',
-          duration: 1500
+        wx.showModal({
+          title: '提示',
+          content: '请求数据失败',
+          showCancel: false
         })
       }
     })

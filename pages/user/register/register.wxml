@@ -1,4 +1,5 @@
 <!--zhuce.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
 <!--导航-->
 <view class="card">
   <view class="title">
@@ -10,7 +11,9 @@
       <view class="{{jd2}}">2</view>
     </view>
     <view class="back">
-      <image wx:if="{{jd3 == 'true'}}" class="icon" src="{{urlPath}}duihao2.png"></image>
+      <image wx:if="{{jd3 == 'true'}}" class="icon" src="{{urlPath}}duihao1.png"></image>
+      <image wx:if="{{jd3 == 'false'}}" class="icon" src="{{urlPath}}duihao2.png"></image>
+      
     </view>
   </view>
   <view class="titleDown">
@@ -77,8 +80,10 @@
     <view class="name"> </view>
     <input bindinput="recordAddress" class="input" placeholder="请输入详细地址" />
   </view>
-
-  <button bindtap="firstNext" class="btn" type="primary">下一步</button>
+<view style="float:left;width:100%;height:30px;line-height:30px;font-size:9pt;text-align:center;color:#888;">
+注册即代表同意[美丽互联]<text bindtap="openFw" style="color:#f90">服务条款</text>和<text bindtap="openYs" style="color:#f90">隐私条款</text>
+</view>
+  <button bindtap="firstNext"  class="btn" type="primary">下一步</button>
 </view>
 <!--表单backBlue2-->
 <view class="{{second}}">
@@ -207,3 +212,13 @@
     </picker-view-column>
   </picker-view>
 </view>
+<modal title="服务条款" hidden="{{fwModalHidden}}"  no-cancel="true" bindconfirm="fwModalBindConfirm">
+ <view style="width:100%;height:200px;overflow:auto;">
+ <template is="wxParse" data="{{wxParseData:fw.nodes}}"/>
+ </view>
+</modal>
+<modal title="隐私条款" hidden="{{ysModalHidden}}"  no-cancel="true" bindconfirm="ysModalBindConfirm">
+ <view style="width:100%;height:200px;overflow:auto;">
+ <template is="wxParse" data="{{wxParseData:ys.nodes}}"/>
+ </view>
+</modal>

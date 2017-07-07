@@ -33,12 +33,12 @@ Page({
     pageIndex: 1,
     //每页条数
     pageSize: 10,
-    churanggufen:'',
-    userId:'',
-    renchouModalHidden:true,
-    renchou:'',
-    syRenchou:'',
-    id:''
+    churanggufen: '',
+    userId: '',
+    renchouModalHidden: true,
+    renchou: '',
+    syRenchou: '',
+    id: ''
   },
 
   /**
@@ -48,7 +48,7 @@ Page({
     this.setData({
       capitalId: options.capital_id,
       projectUser: options.project_user,
-      userId:app.globalData.huiyuanInfo.userid
+      userId: app.globalData.huiyuanInfo.userid
     })
   },
 
@@ -138,7 +138,7 @@ Page({
             console.log("获取资合详情信息：" + JSON.stringify(res.data))
             var info = res.data.info[0]
             that.setData({
-              id:info.id,
+              id: info.id,
               mbMoney: info.targetmoney,
               ycMoney: info.alreadymoney,
               startTime: info.starttime,
@@ -147,14 +147,15 @@ Page({
               yirenchou: info.mymoeny,
               meiguzhanbi: info.unitpercent,
               gufenzhanbi: info.mystock,
-              churanggufen:info.moststock,
-              syRenchou:info.leftmoney
+              churanggufen: info.moststock,
+              syRenchou: info.leftmoney
             })
           },
           fail: function (res) {
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '请求数据失败',
+              showCancel: false
             })
           }
         })
@@ -209,41 +210,52 @@ Page({
             }
           },
           fail: function (res) {
-            wx.showToast({
-              title: '数据加载失败',
-              duration: 1500
+            wx.showModal({
+              title: '提示',
+              content: '请求数据失败',
+              showCancel: false
             })
           }
         })
       }
     })
   },
-  goToRenchou:function(){
+  goToRenchou: function () {
     var that = this;
     that.setData({
       renchouModalHidden: false,
-      renchou:''
+      renchou: ''
     })
   },
-  renchouModalBindConfirm:function(){
+  renchouModalBindConfirm: function () {
     var that = this;
-    if(that.data.renchou < 100 && that.data.renchou > 10000 ){
-      wx.showToast({
-        title: '募资金额应大于100小于10000',
-        duration:1500
+    if (that.data.renchou == '') {
+      wx.showModal({
+        title: '提示',
+        content: '请输入投资金额',
+        showCancel: false
       })
       return;
     }
-    if(that.data.renchou % 100 != 0){
-      wx.showToast({
-        title: '募资金额应是100的倍数',
-        duration: 1500
+    if (that.data.renchou < 100 && that.data.renchou > 10000) {
+      wx.showModal({
+        title: '提示',
+        content: '投资金额应大于100小于10000',
+        showCancel: false
+      })
+      return;
+    }
+    if (that.data.renchou % 100 != 0) {
+      wx.showModal({
+        title: '提示',
+        content: '投资金额应是100的倍数',
+        showCancel: false
       })
       return;
     }
     wx.showModal({
       title: '提示',
-      content: '你确定要募资吗',
+      content: '你确定要投资吗',
       success: function (res) {
         if (res.confirm) {
           wx.showLoading({
@@ -254,10 +266,10 @@ Page({
               wx.request({
                 url: app.globalData.https + '/x/Operate/Zihe.ashx',
                 data: {
-                  method:"Join_Zihe",
-                  id:that.data.id,
-                  memid:app.globalData.huiyuanInfo.userid,
-                  money:that.data.renchou
+                  method: "Join_Zihe",
+                  id: that.data.id,
+                  memid: app.globalData.huiyuanInfo.userid,
+                  money: that.data.renchou
                 },
                 header: {
                   'content-type': 'application/json'
@@ -270,33 +282,38 @@ Page({
                       title: '认筹成功',
                       duration: 1500
                     })
-                    setTimeout(function(){
+                    setTimeout(function () {
                       that.loadDetail()
                       that.loadTzrList()
-                    },500) 
+                    }, 500)
                   }
-                  else if(res.data== -1) {
-                    wx.showToast({
-                      title: '美丽币不足,请充值',
-                      duration: 1500
+                  else if (res.data == -1) {
+                    wx.showModal({
+                      title: '提示',
+                      content: '美丽币不足,请充值',
+                      confirmText: '去充值',
+                      success: function (res) {
+                        if (res.confirm) {
+                          wx.navigateTo({
+                            url: '../../../pages/user/fortuneBao/recharge/recharge',
+                          })
+                        }
+                      }
                     })
-                    setTimeout(function () {
-                      wx.navigateTo({
-                        url: '../../../pages/user/fortuneBao/recharge/recharge',
-                      }) 
-                    }, 500) 
                   }
-                  else{
-                    wx.showToast({
-                      title: '认筹失败',
-                      duration: 1500
+                  else {
+                    wx.showModal({
+                      title: '提示',
+                      content: '认筹失败',
+                      showCancel: false
                     })
                   }
                 },
                 fail: function (res) {
-                  wx.showToast({
-                    title: '数据请求失败',
-                    duration: 1500
+                  wx.showModal({
+                    title: '提示',
+                    content: '数据请求失败',
+                    showCancel: false
                   })
                 }
               })
@@ -314,15 +331,15 @@ Page({
       renchouModalHidden: true
     })
   },
-  renchouModalBindCancel:function(){
+  renchouModalBindCancel: function () {
     var that = this;
     that.setData({
       renchouModalHidden: true
     })
   },
-  renchouInput:function(e){
+  renchouInput: function (e) {
     this.setData({
-      renchou:e.detail.value
+      renchou: e.detail.value
     })
   }
 
