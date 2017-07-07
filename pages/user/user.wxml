@@ -50,14 +50,14 @@
   </view>
   <view bindtap="goToProjectBao" class="line">
     <view class="headPortrait">
-      <image class="line-icon" src="{{urlPath}}user_project.png"></image>
+      <image class="line-icon" src="{{urlPath}}article.png"></image>
       <text class="line-name">项目宝</text>
     </view>
     <image class="line-right" src="{{urlPath}}arrows.png"></image>
   </view>
   <view bindtap="goToActivityBao" class="line">
     <view class="headPortrait">
-      <image class="line-icon" src="{{urlPath}}user_activity.png"></image>
+      <image class="line-icon" src="{{urlPath}}activity.png"></image>
       <text class="line-name">活动宝</text>
     </view>
     <image class="line-right" src="{{urlPath}}arrows.png"></image>
